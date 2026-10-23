@@ -1,0 +1,40 @@
+{
+  "name": "@cosys/crypto",
+  "version": "0.1.2",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.ts",
+    "./base64": "./src/base64.ts",
+    "./bytes": "./src/bytes.ts",
+    "./cipher": "./src/cipher.ts",
+    "./compare": "./src/compare.ts",
+    "./curves": "./src/curves.ts",
+    "./entropy": "./src/entropy.ts",
+    "./hash": "./src/hash.ts",
+    "./index": "./src/index.ts",
+    "./kdf": "./src/kdf.ts",
+    "./params": "./src/params.ts",
+    "./pin": "./src/pin.ts",
+    "./random": "./src/random.ts",
+    "./signing": "./src/signing.ts",
+    "./stream": "./src/stream.ts",
+    "./ulid": "./src/ulid.ts"
+  },
+  "imports": {
+    "@noble/ciphers": "npm:@noble/ciphers@2.4.0",
+    "@noble/ciphers/": "npm:/@noble/ciphers@2.4.0/",
+    "@noble/curves": "npm:@noble/curves@2.4.0",
+    "@noble/curves/": "npm:/@noble/curves@2.4.0/",
+    "@noble/hashes": "npm:@noble/hashes@2.4.0",
+    "@noble/hashes/": "npm:/@noble/hashes@2.4.0/",
+    "zod": "npm:zod@^4.6.5",
+    "zod/": "npm:/zod@^4.6.5/"
+  },
+  "publish": {
+    "include": [
+      "src/**/*.ts",
+      "README.md",
+      "LICENSE"
+    ]
+  }
+}

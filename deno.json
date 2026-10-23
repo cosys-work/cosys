@@ -1,0 +1,9 @@
+{
+  "workspace": [
+    "./packages/bridge",
+    "./packages/cosys-record",
+    "./packages/crypto",
+    "./packages/peer",
+    "./packages/posts"
+  ]
+}

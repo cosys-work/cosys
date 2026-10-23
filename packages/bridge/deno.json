@@ -1,0 +1,25 @@
+{
+  "name": "@cosys/bridge",
+  "version": "0.1.2",
+  "license": "Apache-2.0",
+  "exports": {
+    "./codec": "./src/codec.ts",
+    "./erasure": "./src/erasure.ts",
+    "./inbox": "./src/inbox.ts",
+    "./loop": "./src/loop.ts",
+    "./outbox": "./src/outbox.ts",
+    "./pairing": "./src/pairing.ts",
+    "./service/file-state": "./src/service/file-state.ts",
+    "./service/network": "./src/service/network.ts",
+    "./service/tick": "./src/service/tick.ts",
+    "./state": "./src/state.ts"
+  },
+  "imports": {},
+  "publish": {
+    "include": [
+      "src/**/*.ts",
+      "README.md",
+      "LICENSE"
+    ]
+  }
+}

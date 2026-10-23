@@ -1,0 +1,25 @@
+name: Publish to JSR
+
+# Publishes the five packages in this workspace to JSR, at the version their deno.json files
+# carry, with provenance: the job's OIDC token lets JSR record which commit and workflow built
+# each version. Run by hand after a sync from the source repository.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    name: '@cosys/*'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Publish the workspace
+        run: npx --yes jsr@0.14.3 publish

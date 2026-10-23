@@ -1,0 +1,62 @@
+{
+  "about": "ADR-18 §4 confirmation-code test vectors: two identity keys (hex), the four emoji ids and six digits both phones must show. Generated 2026-09-27 with Node crypto from the ADR text (scripts/lib/pairing-code.mjs), and held against @noble on the phone path by test/confirmation-vectors.test.ts. A change here is a change to the pairing protocol.",
+  "context": "tapp-peer/pair-confirm/v1",
+  "vectors": [
+    {
+      "about": "the two smallest keys",
+      "a": "0000000000000000000000000000000000000000000000000000000000000001",
+      "b": "0000000000000000000000000000000000000000000000000000000000000002",
+      "emoji": ["balloon", "train", "bridge", "flag"],
+      "emojiIndices": [2, 59, 11, 29],
+      "digits": "231378"
+    },
+    {
+      "about": "the largest and the smallest, given largest first",
+      "a": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "b": "0000000000000000000000000000000000000000000000000000000000000000",
+      "emoji": ["flower", "basket", "football", "onion"],
+      "emojiIndices": [30, 4, 31, 48],
+      "digits": "237046"
+    },
+    {
+      "about": "a patient and a caregiver",
+      "a": "8ab231a96c2ad6096637fa5c3330d5649cbfe4532b9c96c80f9eb7137ff72001",
+      "b": "0e375ec9569296f57fdfc1658c48b32dae07c69568cecbe914d8bc82e28295d3",
+      "emoji": ["banana", "apple", "clock", "butterfly"],
+      "emojiIndices": [3, 1, 20, 13],
+      "digits": "532542"
+    },
+    {
+      "about": "the same pair, the other way round",
+      "a": "0e375ec9569296f57fdfc1658c48b32dae07c69568cecbe914d8bc82e28295d3",
+      "b": "8ab231a96c2ad6096637fa5c3330d5649cbfe4532b9c96c80f9eb7137ff72001",
+      "emoji": ["banana", "apple", "clock", "butterfly"],
+      "emojiIndices": [3, 1, 20, 13],
+      "digits": "532542"
+    },
+    {
+      "about": "the same patient and a second caregiver",
+      "a": "8ab231a96c2ad6096637fa5c3330d5649cbfe4532b9c96c80f9eb7137ff72001",
+      "b": "2c9f29a648452c5e1354569dec92d2ba269085c5d6481bc85f9ebb29afe92a08",
+      "emoji": ["moon", "egg", "hat", "turtle"],
+      "emojiIndices": [45, 25, 37, 61],
+      "digits": "337520"
+    },
+    {
+      "about": "two handsets",
+      "a": "93f84ac026ccbff738c0def7535ba307b66b934deb0cfaa7ec1bb6a8dec5884d",
+      "b": "9b86a215ac036ce1bd7e1c1ea330d94225241952d5878965c2e57d7fbe84f61e",
+      "emoji": ["leaf", "sun", "shoe", "kite"],
+      "emojiIndices": [42, 58, 54, 40],
+      "digits": "326919"
+    },
+    {
+      "about": "digits with a leading zero, which must stay six digits",
+      "a": "2156de5826f90f9ef2407906c87eefbec59495d653b351fa2e2f602fecbe63ce",
+      "b": "ca514532d4cc68bcaa2e5984e0a7d872286a50d31f563c3882e647a0f05532ec",
+      "emoji": ["cloud", "lamp", "fork", "watch"],
+      "emojiIndices": [21, 41, 32, 63],
+      "digits": "068950"
+    }
+  ]
+}

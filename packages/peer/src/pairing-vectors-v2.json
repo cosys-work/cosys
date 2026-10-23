@@ -1,0 +1,133 @@
+{
+  "about": "ADR-18 §4.5 test vectors for a pairing between two people: the inviter and joiner keys, both nonces, the commitment the invite carries, and the four emoji ids and six digits both phones must show. Generated 2026-10-16 with Node crypto from the ADR text (scripts/lib/pairing-code.mjs), and held against @noble on the phone path by test/confirmation-vectors.test.ts. A change here is a change to the pairing protocol.",
+  "commitContext": "tapp-peer/pair-commit/v2",
+  "context": "tapp-peer/pair-confirm/v2",
+  "vectors": [
+    {
+      "about": "the two smallest keys, zero nonces",
+      "inviter": "0000000000000000000000000000000000000000000000000000000000000001",
+      "joiner": "0000000000000000000000000000000000000000000000000000000000000002",
+      "inviterNonce": "00000000000000000000000000000000",
+      "joinerNonce": "00000000000000000000000000000000",
+      "commitment": "c85e4572cb3aa1004457b82a4ce5490e",
+      "emoji": [
+        "umbrella",
+        "chair",
+        "snowflake",
+        "onion"
+      ],
+      "emojiIndices": [
+        62,
+        19,
+        55,
+        48
+      ],
+      "digits": "126621"
+    },
+    {
+      "about": "the same pair with the roles the other way round, which is a different code",
+      "inviter": "0000000000000000000000000000000000000000000000000000000000000002",
+      "joiner": "0000000000000000000000000000000000000000000000000000000000000001",
+      "inviterNonce": "00000000000000000000000000000000",
+      "joinerNonce": "00000000000000000000000000000000",
+      "commitment": "c286358072a5574a42b93bcb87f2c0b2",
+      "emoji": [
+        "umbrella",
+        "book",
+        "tree",
+        "hammer"
+      ],
+      "emojiIndices": [
+        62,
+        9,
+        60,
+        36
+      ],
+      "digits": "780605"
+    },
+    {
+      "about": "the extreme keys",
+      "inviter": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "joiner": "0000000000000000000000000000000000000000000000000000000000000000",
+      "inviterNonce": "ffffffffffffffffffffffffffffffff",
+      "joinerNonce": "00000000000000000000000000000000",
+      "commitment": "473def7f6ea1d66ac7af76008f06138e",
+      "emoji": [
+        "grapes",
+        "mountain",
+        "bread",
+        "onion"
+      ],
+      "emojiIndices": [
+        34,
+        46,
+        10,
+        48
+      ],
+      "digits": "714244"
+    },
+    {
+      "about": "one nonce changed by a bit, which changes the code",
+      "inviter": "abababababababababababababababababababababababababababababababab",
+      "joiner": "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+      "inviterNonce": "11111111111111111111111111111111",
+      "joinerNonce": "22222222222222222222222222222222",
+      "commitment": "a79113027db61a3aaf7e1d67b1f498b7",
+      "emoji": [
+        "lock",
+        "sun",
+        "flag",
+        "hammer"
+      ],
+      "emojiIndices": [
+        44,
+        58,
+        29,
+        36
+      ],
+      "digits": "044352"
+    },
+    {
+      "about": "one nonce changed by a bit (the other half)",
+      "inviter": "abababababababababababababababababababababababababababababababab",
+      "joiner": "cdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcdcd",
+      "inviterNonce": "11111111111111111111111111111111",
+      "joinerNonce": "22222222222222222222222222222223",
+      "commitment": "a79113027db61a3aaf7e1d67b1f498b7",
+      "emoji": [
+        "chair",
+        "butterfly",
+        "egg",
+        "moon"
+      ],
+      "emojiIndices": [
+        19,
+        13,
+        25,
+        45
+      ],
+      "digits": "171574"
+    },
+    {
+      "about": "a pair whose digits start with a zero",
+      "inviter": "1212121212121212121212121212121212121212121212121212121212121212",
+      "joiner": "3434343434343434343434343434343434343434343434343434343434343434",
+      "inviterNonce": "56565656565656565656565656565656",
+      "joinerNonce": "0000000000000000000000000000000c",
+      "commitment": "20e21a057a787311aaade9785f102cd4",
+      "emoji": [
+        "kite",
+        "hammer",
+        "carrot",
+        "lamp"
+      ],
+      "emojiIndices": [
+        40,
+        36,
+        17,
+        41
+      ],
+      "digits": "014320"
+    }
+  ]
+}

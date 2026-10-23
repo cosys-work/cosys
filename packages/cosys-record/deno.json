@@ -1,0 +1,32 @@
+{
+  "name": "@cosys/record",
+  "version": "0.1.2",
+  "license": "Apache-2.0",
+  "exports": {
+    "./bridge-kinds": "./src/bridge-kinds.ts",
+    "./bridge": "./src/bridge.ts",
+    "./claims": "./src/claims.ts",
+    "./kinds": "./src/kinds.ts",
+    "./protocols": "./src/protocols.ts",
+    "./refs": "./src/refs.ts",
+    "./row": "./src/row.ts",
+    "./schema/assert": "./src/schema/assert.ts",
+    "./schema/common": "./src/schema/common.ts",
+    "./schema/sharing": "./src/schema/sharing.ts",
+    "./schema/tombstone": "./src/schema/tombstone.ts",
+    "./signed": "./src/signed.ts",
+    "./time": "./src/time.ts",
+    "./views": "./src/views.ts"
+  },
+  "imports": {
+    "zod": "npm:zod@^4.6.5",
+    "zod/": "npm:/zod@^4.6.5/"
+  },
+  "publish": {
+    "include": [
+      "src/**/*.ts",
+      "README.md",
+      "LICENSE"
+    ]
+  }
+}

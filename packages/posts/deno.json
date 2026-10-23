@@ -1,0 +1,29 @@
+{
+  "name": "@cosys/posts",
+  "version": "0.1.2",
+  "license": "Apache-2.0",
+  "exports": {
+    "./audience": "./src/audience.ts",
+    "./create": "./src/create.ts",
+    "./feed": "./src/feed.ts",
+    "./formats": "./src/formats.ts",
+    "./gate": "./src/gate.ts",
+    "./kinds": "./src/kinds.ts",
+    "./landing": "./src/landing.ts",
+    "./markdown": "./src/markdown.ts",
+    "./refs": "./src/refs.ts",
+    "./schema": "./src/schema.ts",
+    "./tally": "./src/tally.ts"
+  },
+  "imports": {
+    "zod": "npm:zod@^4.6.5",
+    "zod/": "npm:/zod@^4.6.5/"
+  },
+  "publish": {
+    "include": [
+      "src/**/*.ts",
+      "README.md",
+      "LICENSE"
+    ]
+  }
+}
