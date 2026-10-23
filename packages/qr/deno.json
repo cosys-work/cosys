@@ -1,0 +1,16 @@
+{
+  "name": "@cosys/qr",
+  "version": "0.1.2",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "imports": {},
+  "publish": {
+    "include": [
+      "src/**/*.ts",
+      "README.md",
+      "LICENSE"
+    ]
+  }
+}

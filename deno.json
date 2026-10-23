@@ -3,7 +3,9 @@
     "./packages/bridge",
     "./packages/cosys-record",
     "./packages/crypto",
+    "./packages/log",
     "./packages/peer",
-    "./packages/posts"
+    "./packages/posts",
+    "./packages/qr"
   ]
 }
