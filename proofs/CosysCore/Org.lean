@@ -1,9 +1,9 @@
 import CosysCore.Network
 
 /-!
-# Registries as a dynamic multicategory
+# Registries as a dynamic organization
 
-The proposition *Registries form a dynamic multicategory* of *Collaboration Without Orchestration*.
+The proposition *Registries as a dynamic organization* of *Collaboration Is Composition*.
 
 In Shapiro and Spivak's `Org`, a horizontal morphism from `p` to `q` is a `[p, q]`-coalgebra: a
 set of states, each putting out a map `p → q` and updating on what flows through it, a position

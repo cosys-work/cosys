@@ -4,7 +4,7 @@ import CosysCore.Basic
 # Units, routing and the changing wiring
 
 The proposition *A unit with its mailboxes is a dynamical system* and the theorem *Changing
-wiring as a map of polynomials* of *Collaboration Without Orchestration*.
+wiring as a map of polynomials* of *Collaboration Is Composition*.
 
 An envelope is a record together with one unit in its audience: `src` is the unit whose box
 emitted it and `dst` the unit it is for. A box emits a record addressed to several units as one

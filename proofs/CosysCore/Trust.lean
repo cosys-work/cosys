@@ -3,8 +3,8 @@ import CosysCore.Basic
 /-!
 # Trust as a fibration over observers
 
-The proposition of the section *Trust as a fibration over observers* of *Collaboration Without
-Orchestration*.
+The proposition of the section *Trust as a fibration over observers* of *Collaboration Is
+Composition*.
 
 Observers form the free category on the sharing graph, with an arrow `v ⟶ u` for each standing
 pairing in which `u` shares with `v`. The fiber over a unit `u` is the poset of record sets inside

@@ -1,9 +1,9 @@
 # Proofs
 
-Lean 4 proofs of the results in our paper *Collaboration Without Orchestration: composable Mealy
-machines over signed records, and trust as a fibration over observers*. The model is the one the
-`@cosys` packages implement: every party acts through a Mealy machine over an append-only log of
-signed records, and a collaboration is those machines wired together through mailboxes.
+Lean 4 proofs of the results in our paper *Collaboration Is Composition: Mealy Machines over Signed
+Records in Poly and Org*. The model is the one the `@cosys` packages implement: every party acts
+through a Mealy machine over an append-only log of signed records, and a collaboration is those
+machines wired together through mailboxes.
 
 There are two libraries. `CosysCore` uses core Lean only:
 

@@ -7,7 +7,7 @@ import CosysCalco.Claims
 /-!
 # Grades and acceptance without numbers
 
-The theorem *Grades* of *Collaboration Without Orchestration*.
+The theorem *Grades* of *Collaboration Is Composition*.
 
 A derived fact carries its provenance, a positive Boolean expression over the records it was
 derived from: conjunction for premises used together, disjunction for alternative derivations.

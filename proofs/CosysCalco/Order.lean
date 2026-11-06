@@ -11,7 +11,7 @@ import Mathlib.Data.Set.Finite.Lattice
 
 The definition *Monotone box*, the theorem *Order independence*, the propositions on global
 quiescence, on non-monotone conditions and on growing wiring, and the proposition *Rounds are a
-fair schedule* of *Collaboration Without Orchestration*.
+fair schedule* of *Collaboration Is Composition*.
 
 A monotone box is log-determined, so we read it at the level of logs. `Out L` is the set of records
 the box has emitted once its log is `L`. On an input `r` at log `L` the box emits what

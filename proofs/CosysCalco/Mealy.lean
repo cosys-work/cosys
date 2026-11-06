@@ -5,7 +5,7 @@ import Mathlib.Data.Set.Basic
 # Boxes, collaborations and congruence
 
 The definitions *Box*, *Mailbox* and *Collaboration*, and the theorem *Congruence* of *Collaboration
-Without Orchestration*.
+Is Composition*.
 
 A box is a Mealy machine whose inputs are records and whose outputs are finite lists of records. In
 a collaboration each pair of units has a mailbox, a set of deposited records. A schedule is a

@@ -6,7 +6,7 @@ import Mathlib.Data.Finset.Prod
 
 The definitions *Grade of a record*, *Claim type* and *Placement of an agent*, the proposition on
 claim types, the proposition *Agents draft, people sign*, and the lemma *Placement changes routing
-only* of *Collaboration Without Orchestration*.
+only* of *Collaboration Is Composition*.
 
 A record has an author key, a kind, and the role in which its author signs it. A co-signature is a
 record of its own, which signs another record in a role with its author's key. Keys are held by

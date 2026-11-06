@@ -3,7 +3,7 @@ import CosysCore.Basic
 /-!
 # Gluing of record sets
 
-The proposition *Gluing of record sets* of *Collaboration Without Orchestration*. Units `u i` hold
+The proposition *Gluing of record sets* of *Collaboration Is Composition*. Units `u i` hold
 logs `L i`. `A i` is the set of records whose audience includes `u i`, so each `L i` lies inside
 `A i`. If the logs agree on every overlap of audiences, their union is the one set of records
 inside the union of the audiences that restricts to every log, and a view computed from a log is
