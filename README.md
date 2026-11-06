@@ -14,6 +14,9 @@ The source of the seven `@cosys` TypeScript packages, exactly as they are publis
 
 Each package has its own README in `packages/<name>/` with the API and examples.
 
+The repository also holds Lean 4 proofs of the model behind the packages, in `proofs/`. See
+[Proofs](#proofs).
+
 ## Install
 
 ```sh
@@ -24,11 +27,20 @@ npm install @cosys/peer       # Node.js or Bun, from npm
 
 They run on Deno, Node.js and Bun. In a React Native or Expo app, install from npm: only the npm copy of `@cosys/crypto` carries the React Native entropy source.
 
+## Proofs
+
+`proofs/` holds Lean 4 proofs of the results in our paper *Collaboration Without Orchestration:
+composable Mealy machines over signed records, and trust as a fibration over observers*. `CosysCore`,
+in core Lean, covers the polynomial-functor results, registries as a dynamic multicategory, gluing of
+record sets and trust as a fibration over observers. `CosysCalco`, on Mathlib, covers congruence,
+order independence for monotone boxes, claims as types and grades. Build instructions and a map from
+files to results are in [proofs/README.md](proofs/README.md).
+
 ## How this repository is made
 
-The packages are developed in a private repository, `cosys-work/tda`, next to the apps that use them. Each commit here is a sync of one release from there, and its message names the source commit. The workflow in `.github/workflows/publish.yml` publishes that release to JSR with provenance, so each version on JSR links back to the commit that built it.
+The packages are developed in a private repository, `cosys-work/tda`, next to the apps that use them. Each commit to `packages/` here is a sync of one release from there, and its message names the source commit. The workflow in `.github/workflows/publish.yml` publishes that release to JSR with provenance, so each version on JSR links back to the commit that built it.
 
-Changes made here would be overwritten by the next sync, so please do not open pull requests against this repository. Issues are welcome.
+Changes to `packages/` made here would be overwritten by the next sync, so please do not open pull requests against them. Issues are welcome, for the packages and for the proofs.
 
 ## Licence
 
