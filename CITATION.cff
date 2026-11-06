@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use these libraries or proofs, please cite them as below."
+type: software
+title: "cosys: packages and Lean 4 proofs for Collaboration Is Composition"
+abstract: >-
+  The packages that implement a model of collaboration in which every party acts
+  through a Mealy machine over an append-only log of signed records, and the Lean 4
+  proofs of the paper Collaboration Is Composition: Mealy Machines over Signed
+  Records in Poly and Org.
+authors:
+  - family-names: Karna
+    given-names: Risav
+    affiliation: "CoSys Work Pvt. Ltd."
+repository-code: "https://github.com/cosys-work/cosys"
+url: "https://cosys.work"
+license: Apache-2.0
+keywords:
+  - Lean 4
+  - applied category theory
+  - polynomial functors
+  - Mealy machines
+  - local-first software
