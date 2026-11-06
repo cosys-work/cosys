@@ -31,7 +31,7 @@ They run on Deno, Node.js and Bun. In a React Native or Expo app, install from n
 
 `proofs/` holds Lean 4 proofs of the results in our paper *Collaboration Without Orchestration:
 composable Mealy machines over signed records, and trust as a fibration over observers*. `CosysCore`,
-in core Lean, covers the polynomial-functor results, registries as a dynamic multicategory, gluing of
+in core Lean, covers the polynomial-functor results, registries of pairings in Org, gluing of
 record sets and trust as a fibration over observers. `CosysCalco`, on Mathlib, covers congruence,
 order independence for monotone boxes, claims as types and grades. Build instructions and a map from
 files to results are in [proofs/README.md](proofs/README.md).
