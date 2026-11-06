@@ -10,18 +10,18 @@ There are two libraries. `CosysCore` uses core Lean only:
 | File | Results |
 | --- | --- |
 | `CosysCore/Basic.lean` | Polynomials, their maps, the tensor, dynamical systems `S y^S → p`, partitions |
-| `CosysCore/Network.lean` | A unit with its mailboxes is a dynamical system; changing wiring as a map of polynomials, with its identity and nesting laws |
-| `CosysCore/Org.lean` | Registries of pairings form a dynamic multicategory in the sense of Shapiro and Spivak |
+| `CosysCore/Network.lean` | A unit with its mailboxes is a dynamical system that delivers each envelope once; changing wiring as a map of polynomials, with its identity and nesting laws |
+| `CosysCore/Org.lean` | Registries of pairings: the identitor and compositor of a dynamic multicategory in the sense of Shapiro and Spivak, and their equations on the pairings held |
 | `CosysCore/Gluing.lean` | Gluing of record sets, and the sheaf condition on an audience cover |
-| `CosysCore/Trust.lean` | Trust as a split fibration over observers; a ranking is computed inside one fiber |
+| `CosysCore/Trust.lean` | Trust as a split fibration over observers: cartesian lifts, unique factorisation, strict composition of lifts |
 
 `CosysCalco` uses Mathlib:
 
 | File | Results |
 | --- | --- |
 | `CosysCalco/Mealy.lean` | Boxes as Mealy machines, collaborations over a stream of events, congruence of bisimilarity |
-| `CosysCalco/Order.lean` | Monotone boxes; order independence with finitely many units, with unboundedly many units, and for chains; no global quiescence; a non-monotone condition; rounds |
-| `CosysCalco/Claims.lean` | Grades of records, claim types with accountable keys, reserved claims, placement of agents |
+| `CosysCalco/Order.lean` | Monotone boxes and the receive rule, read in any order; order independence with finitely many units, with unboundedly many units, and for chains, with `Out` read through finite subsets; outside inputs, and a pairing that forms inside a run; growing wiring; no global quiescence; a non-monotone condition from any point of a run; rounds |
+| `CosysCalco/Claims.lean` | Grades of records, claim types with accountable keys, acceptance, reserved claims, placement of agents, and the decision procedure run on an example |
 | `CosysCalco/Grades.lean` | The lattice of grades, provenance as `PosBool`, acceptance as its universal property |
 
 ## Building
