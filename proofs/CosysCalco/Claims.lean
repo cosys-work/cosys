@@ -8,11 +8,13 @@ The definitions *Grade of a record*, *Claim type* and *Placement of an agent*, t
 claim types, the proposition *Agents draft, people sign*, and the lemma *Placement changes routing
 only* of *Collaboration Without Orchestration*.
 
-A record has an author key and a kind. A co-signature is a record of its own, which signs another
-record in a role with its author's key. Keys are held by persons or by agents. A signature by an
-agent key counts only when the log holds an `operated_by` record for that key naming a unit a
-person holds; we call such a key accountable in the log, and every person key is. The grade of a
-record in a log is the set of role and key pairs that have signed it there with accountable keys.
+A record has an author key, a kind, and the role in which its author signs it. A co-signature is a
+record of its own, which signs another record in a role with its author's key. Keys are held by
+persons or by agents. A signature by an agent key counts only when the log holds an `operated_by`
+record for that key, naming a unit, and signed by a person key that holds that unit; we call such a
+key accountable in the log, and every person key is. An agent key cannot vouch for itself. The
+grade of a record in a log is the set of role and key pairs that have signed it there with
+accountable keys.
 A claim kind has parameters, a naming relation and an authority rule, the signatures the claim
 needs, which may read pairing records in the log. A record of the log inhabits the claim type when
 its author is accountable, it has the kind, names the parameters, and its grade covers the
@@ -27,8 +29,8 @@ variable {R Role Key K U : Type}
 structure Signed (R Role Key K U : Type) where
   author : R → Key
   kind : R → K
-  /-- The role in which an author signs its own record. -/
-  authorRole : Role
+  /-- The role in which the author of a record signs it, named in the record. -/
+  authorRole : R → Role
   /-- `cosign s = some (r, ρ)`: the record `s` is a co-signature of `r` in the role `ρ`. A
   co-signature names one subject and one role. -/
   cosign : R → Option (R × Role)
@@ -37,8 +39,8 @@ structure Signed (R Role Key K U : Type) where
   /-- `operatedBy s = some (k, u)`: the record `s` says the agent key `k` is operated by the unit
   `u`. -/
   operatedBy : R → Option (Key × U)
-  /-- Units a person holds. -/
-  personHeld : U → Prop
+  /-- `holds k u`: the directory says that the person key `k` holds the unit `u`. -/
+  holds : Key → U → Prop
 
 /-- A claim kind. -/
 structure ClaimKind (R Role Key K : Type) where
@@ -52,14 +54,15 @@ structure ClaimKind (R Role Key K : Type) where
 variable (S : Signed R Role Key K U)
 
 /-- A key is accountable in `L` when a person holds it, or when `L` holds an `operated_by` record
-for it naming a unit a person holds. -/
+for it naming a unit, signed by a person key that holds that unit. -/
 def Accountable (L : Set R) (k : Key) : Prop :=
-  ¬ S.isAgent k ∨ ∃ s ∈ L, ∃ u, S.operatedBy s = some (k, u) ∧ S.personHeld u
+  ¬ S.isAgent k ∨
+    ∃ s ∈ L, ∃ u, S.operatedBy s = some (k, u) ∧ ¬ S.isAgent (S.author s) ∧ S.holds (S.author s) u
 
 /-- The grade of `r` in the log `L`: its author in the author's role, and every co-signer, with an
 accountable key, in its role. -/
 def grade (L : Set R) (r : R) : Set (Role × Key) :=
-  {(S.authorRole, S.author r)} ∪
+  {(S.authorRole r, S.author r)} ∪
     {g | ∃ s ∈ L, S.cosign s = some (r, g.1) ∧ S.author s = g.2 ∧ Accountable S L g.2}
 
 /-- The claim type `Claim κ (x) L`. -/
@@ -83,40 +86,43 @@ theorem grade_mono {L L' : Set R} (h : L ⊆ L') (r : R) : grade S L r ⊆ grade
   · exact Or.inr ⟨s, h hs, hc, ha, hacc.mono h⟩
 
 /-- `Accountable`, checked against a finite log. -/
-def accountableIn (S : Signed R Role Key K U) [DecidableEq Key] [DecidablePred S.personHeld]
-    (L : Finset R) (k : Key) : Prop :=
+def accountableIn (S : Signed R Role Key K U) [DecidableEq Key] [DecidablePred S.isAgent]
+    [∀ k u, Decidable (S.holds k u)] (L : Finset R) (k : Key) : Prop :=
   ¬ S.isAgent k ∨
-    ∃ s ∈ L, (S.operatedBy s).any (fun p => decide (p.1 = k) && decide (S.personHeld p.2))
+    ∃ s ∈ L, (S.operatedBy s).any (fun p => decide (p.1 = k) &&
+      (!decide (S.isAgent (S.author s)) && decide (S.holds (S.author s) p.2)))
 
 instance (S : Signed R Role Key K U) [DecidableEq Key] [DecidablePred S.isAgent]
-    [DecidablePred S.personHeld] (L : Finset R) : DecidablePred (accountableIn S L) := fun k => by
-  unfold accountableIn
-  infer_instance
+    [∀ k u, Decidable (S.holds k u)] (L : Finset R) : DecidablePred (accountableIn S L) :=
+  fun k => by
+    unfold accountableIn
+    infer_instance
 
-theorem accountableIn_iff (S : Signed R Role Key K U) [DecidableEq Key]
-    [DecidablePred S.personHeld] (L : Finset R) (k : Key) :
+theorem accountableIn_iff (S : Signed R Role Key K U) [DecidableEq Key] [DecidablePred S.isAgent]
+    [∀ k u, Decidable (S.holds k u)] (L : Finset R) (k : Key) :
     accountableIn S L k ↔ Accountable S ↑L k := by
   unfold accountableIn Accountable
   apply or_congr Iff.rfl
-  simp only [Option.any_eq_true, Bool.and_eq_true, decide_eq_true_eq,
-    Finset.mem_coe]
+  simp only [Option.any_eq_true, Bool.and_eq_true, decide_eq_true_eq, Bool.not_eq_true',
+    decide_eq_false_iff_not, Finset.mem_coe]
   constructor
-  · rintro ⟨s, hs, ⟨k', u⟩, hop, rfl, hp⟩
-    exact ⟨s, hs, u, hop, hp⟩
-  · rintro ⟨s, hs, u, hop, hp⟩
-    exact ⟨s, hs, (k, u), hop, rfl, hp⟩
+  · rintro ⟨s, hs, ⟨k', u⟩, hop, rfl, hna, hh⟩
+    exact ⟨s, hs, u, hop, hna, hh⟩
+  · rintro ⟨s, hs, u, hop, hna, hh⟩
+    exact ⟨s, hs, (k, u), hop, rfl, hna, hh⟩
 
-/-- **Claims as types (i).** For a finite log, with the authority rule computable as a finite set,
-whether a record inhabits a claim type is decidable. -/
-noncomputable def claimDecidable [DecidableEq R] [DecidableEq Role] [DecidableEq Key]
-    [DecidableEq K] [DecidableEq U] [DecidablePred S.isAgent] [DecidablePred S.personHeld]
+/-- **Claims as types (i).** For a finite log, with decidable naming and the authority rule given
+as a function to finite sets, whether a record inhabits a claim type is decided by an algorithm:
+this is a plain definition, and `claim_decide_example` runs it. -/
+def claimDecidable [DecidableEq R] [DecidableEq Role] [DecidableEq Key]
+    [DecidableEq K] [DecidablePred S.isAgent] [∀ k u, Decidable (S.holds k u)]
     (C : ClaimKind R Role Key K) [∀ r x, Decidable (C.names r x)]
     (authF : C.Param → Finset R → Finset (Role × Key))
     (hauth : ∀ x (L : Finset R), ↑(authF x L) = C.auth x ↑L)
     (x : C.Param) (L : Finset R) (r : R) : Decidable (r ∈ Claim S C x ↑L) :=
   decidable_of_iff
     (r ∈ L ∧ accountableIn S L (S.author r) ∧ S.kind r = C.kind ∧ C.names r x ∧
-      ∀ g ∈ authF x L, g = (S.authorRole, S.author r) ∨
+      ∀ g ∈ authF x L, g = (S.authorRole r, S.author r) ∨
         ∃ s ∈ L, S.cosign s = some (r, g.1) ∧ S.author s = g.2 ∧ accountableIn S L g.2)
     (by
       simp only [accountableIn_iff]
@@ -187,6 +193,30 @@ theorem agents_cannot_inhabit (C : ClaimKind R Role Key K) (hres : Reserved S C)
     exact hpers (hL r hrL)
   · exact hpers (ha ▸ hL s hs)
 
+/-! ## Acceptance -/
+
+/-- The definition *Acceptance*, for one claim kind: an observer who trusts the signatures in
+`trusted` accepts `r` as a claim of kind `C` with parameters `x` when its author is accountable, it
+has the kind and names the parameters, and the signatures of its grade that the observer trusts
+cover the authority rule. -/
+def Accepts (trusted : Set (Role × Key)) (C : ClaimKind R Role Key K) (x : C.Param) (L : Set R) :
+    Set R :=
+  {r | r ∈ L ∧ Accountable S L (S.author r) ∧ S.kind r = C.kind ∧ C.names r x ∧
+    C.auth x L ⊆ grade S L r ∩ trusted}
+
+/-- An observer accepts only records that inhabit the claim type, so nothing an unaccountable key
+authored is accepted, whatever the observer trusts. -/
+theorem accepts_claim (trusted : Set (Role × Key)) (C : ClaimKind R Role Key K) (x : C.Param)
+    (L : Set R) : Accepts (S := S) trusted C x L ⊆ Claim S C x L :=
+  fun _ ⟨hrL, hacc, hk, hn, hsub⟩ => ⟨hrL, hacc, hk, hn, fun _ hg => (hsub hg).1⟩
+
+/-- An observer who trusts more signatures accepts more. -/
+theorem accepts_mono {trusted trusted' : Set (Role × Key)} (h : trusted ⊆ trusted')
+    (C : ClaimKind R Role Key K) (x : C.Param) (L : Set R) :
+    Accepts (S := S) trusted C x L ⊆ Accepts (S := S) trusted' C x L :=
+  fun _ ⟨hrL, hacc, hk, hn, hsub⟩ =>
+    ⟨hrL, hacc, hk, hn, fun _ hg => ⟨(hsub hg).1, h (hsub hg).2⟩⟩
+
 /-- **Placement changes routing only.** Moving an agent between placements writes or removes only
 directory records, marked `place`: the unit, its mailbox, the role, and the `operated_by` record
 naming the unit, held by a person, that answers for the agent. None of them co-signs anything. If
@@ -215,3 +245,47 @@ theorem placement_routing_only (place : R → Prop) (hcos : ∀ s, S.cosign s �
     exact ⟨(hLL' r hr).mpr hrL, (hacc _).mpr hacc', hk, hn, by rw [hauth, hgrade]; exact hsub⟩
 
 end Cosys.Calco
+
+namespace Cosys.Calco.ClaimExample
+
+open Cosys.Calco
+
+
+/-- A request, record `0`, signed by the person key `0` as requester; a co-signature of it, record
+`1`, by the person key `1` as cosigner; and record `2`, which signs nothing. -/
+def S₀ : Signed (Fin 3) Bool (Fin 2) Unit Unit where
+  author r := if r = 1 then 1 else 0
+  kind _ := ()
+  authorRole r := if r = 1 then true else false
+  cosign s := if s = 1 then some (0, true) else none
+  isAgent _ := False
+  operatedBy _ := none
+  holds _ _ := False
+
+/-- A request needs the requester's key and the cosigner's key. -/
+def C₀ : ClaimKind (Fin 3) Bool (Fin 2) Unit where
+  kind := ()
+  Param := Unit
+  names r _ := r = 0
+  auth _ _ := {(false, 0), (true, 1)}
+
+instance : ∀ r x, Decidable (C₀.names r x) := fun r _ => inferInstanceAs (Decidable (r = 0))
+instance : DecidablePred S₀.isAgent := fun _ => isFalse fun h => h
+instance : ∀ k u, Decidable (S₀.holds k u) := fun _ _ => isFalse fun h => h
+
+theorem hauth : ∀ x (L : Finset (Fin 3)),
+    ↑({(false, 0), (true, 1)} : Finset (Bool × Fin 2)) = C₀.auth x ↑L := by
+  intro _ _
+  ext g
+  simp [C₀]
+
+/-- `claimDecidable` computes: the kernel evaluates it to decide that the request inhabits the
+claim type once the co-signature is in the log, and not before. -/
+theorem claim_decide_example :
+    @decide _ (claimDecidable (S := S₀) C₀ (fun _ _ => {(false, 0), (true, 1)}) hauth () {0, 1} 0)
+        = true ∧
+      @decide _ (claimDecidable (S := S₀) C₀ (fun _ _ => {(false, 0), (true, 1)}) hauth () {0} 0)
+        = false := by
+  constructor <;> rfl
+
+end Cosys.Calco.ClaimExample

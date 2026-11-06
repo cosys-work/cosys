@@ -40,7 +40,7 @@ theorem finset_no_top {α : Type} [Infinite α] : ¬ ∃ t : Finset α, ∀ s : 
 theorem grade_finite {R Role Key K U : Type} (S : Signed R Role Key K U) {L : Set R} (hL : L.Finite)
     (r : R) : (grade S L r).Finite := by
   refine (Set.finite_singleton _).union
-    ((hL.image fun s => ((S.cosign s).elim S.authorRole Prod.snd, S.author s)).subset ?_)
+    ((hL.image fun s => ((S.cosign s).elim (S.authorRole s) Prod.snd, S.author s)).subset ?_)
   rintro ⟨ρ, k⟩ ⟨s, hs, hc, ha, -⟩
   refine ⟨s, hs, ?_⟩
   simp only at hc ha

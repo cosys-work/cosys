@@ -12,9 +12,8 @@ pairing in which `u` shares with `v`. The fiber over a unit `u` is the poset of 
 includes `v`, and along a path it does so once for each unit the path passes through.
 
 Reindexing is strictly functorial, contravariantly, so the Grothendieck construction is a split
-fibration: every reindexed set comes with a cartesian lift. A ranking an observer computes is a
-function of its own fiber, so it agrees for any two states of the network that agree on that
-fiber.
+fibration: every reindexed set comes with a cartesian lift, the factorisation through it is unique,
+and the chosen lifts compose strictly.
 -/
 
 namespace Cosys.Trust
@@ -122,17 +121,32 @@ def lift {v u : U} (f : Path shares v u) (X : Fiber aud u) :
     Tot.Hom aud shares ⟨v, reindex aud f X⟩ ⟨u, X⟩ :=
   ⟨f, fun _ h => h⟩
 
-/-- **Trust is a split fibration**, the lift is cartesian: a morphism into `X` over `g` followed by
-`f` factors through the lift, along `g`. The factorisation is unique since each fiber is a poset. -/
-theorem lift_cartesian {w v u : U} (f : Path shares v u) (X : Fiber aud u) (c : Fiber aud w)
-    (g : Path shares w v) (h : c.le (reindex aud (g.comp f) X)) :
-    c.le (reindex aud g (reindex aud f X)) := by
-  rw [← reindex_comp]
-  exact h
+/-- **Trust is a split fibration**, the lift is cartesian: every morphism into `⟨u, X⟩` whose path
+is `g` followed by `f` factors through the lift of `f`, by a morphism over `g`. -/
+theorem lift_cartesian {w v u : U} (f : Path shares v u) (X : Fiber aud u) {c : Fiber aud w}
+    (g : Path shares w v) (h : Tot.Hom aud shares ⟨w, c⟩ ⟨u, X⟩) (hg : h.1 = g.comp f) :
+    ∃ k : Tot.Hom aud shares ⟨w, c⟩ ⟨v, reindex aud f X⟩,
+      k.1 = g ∧ k.comp aud (lift aud f X) = h := by
+  have hle := h.2
+  rw [hg, reindex_comp] at hle
+  exact ⟨⟨g, hle⟩, rfl, Subtype.ext hg.symm⟩
 
-/-- **Trust is a split fibration**, a ranking is computed inside one fiber. For any ranking `rank`
-and two states of the network `L L'`, giving each unit its record set, the rankings at `m` agree
-whenever the fibers at `m` do. -/
+/-- **Trust is a split fibration**, the factorisation is unique: two morphisms over the same path
+are equal, since each fiber is a poset. -/
+theorem hom_unique {a b : Tot aud} (k k' : Tot.Hom aud shares a b) (h : k.1 = k'.1) : k = k' :=
+  Subtype.ext h
+
+/-- **Trust is a split fibration**, the chosen lifts compose strictly: the lift of `g` at the
+reindexed set, followed by the lift of `f`, lies over the composite path, and its domain is the set
+reindexed along the composite. -/
+theorem lift_comp {w v u : U} (g : Path shares w v) (f : Path shares v u) (X : Fiber aud u) :
+    ((lift aud g (reindex aud f X)).comp aud (lift aud f X)).1 = (lift aud (g.comp f) X).1 ∧
+      reindex aud (g.comp f) X = reindex aud g (reindex aud f X) :=
+  ⟨rfl, reindex_comp aud g f X⟩
+
+/-- The design rule on rankings, recorded: a ranking that an observer `m` computes reads only its
+own fiber, so it agrees for any two states of the network that agree on that fiber. This holds by
+its typing. That no record publishes a ranking is a rule of the design, not a theorem. -/
 theorem ranking_local {α : Type} (rank : (m : U) → Fiber aud m → α)
     (L L' : (m : U) → Fiber aud m) (m : U) (h : L m = L' m) :
     rank m (L m) = rank m (L' m) := by
