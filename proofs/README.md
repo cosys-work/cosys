@@ -5,6 +5,9 @@ Records in Poly and Org*. The model is the one the `@cosys` packages implement: 
 through a Mealy machine over an append-only log of signed records, and a collaboration is those
 machines wired together through mailboxes.
 
+Release `proofs-v1.0.0` is archived on Zenodo under the DOI
+[10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063).
+
 There are two libraries. `CosysCore` uses core Lean only:
 
 | File | Results |
