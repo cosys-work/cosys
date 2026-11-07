@@ -3,8 +3,26 @@
   "upload_type": "software",
   "description": "<p>The packages that implement a model of collaboration in which every party acts through a Mealy machine over an append-only log of signed records, and the Lean 4 proofs of the paper <em>Collaboration Is Composition: Mealy Machines over Signed Records in Poly and Org</em>. The proofs are in <code>proofs/</code>; <code>proofs/Check.lean</code> prints the axioms behind each result.</p>",
   "creators": [
-    { "name": "Karna, Risav", "affiliation": "CoSys Work Pvt. Ltd." }
+    {
+      "name": "Karna, Risav",
+      "affiliation": "CoSys Work Pvt. Ltd.",
+      "orcid": "0009-0005-6682-9473"
+    }
   ],
   "license": "Apache-2.0",
-  "keywords": ["Lean 4", "applied category theory", "polynomial functors", "Mealy machines", "local-first software"]
+  "keywords": [
+    "Lean 4",
+    "applied category theory",
+    "polynomial functors",
+    "Mealy machines",
+    "local-first software"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.24026645",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
+    }
+  ]
 }

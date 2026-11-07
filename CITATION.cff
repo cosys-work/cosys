@@ -11,6 +11,7 @@ authors:
   - family-names: Karna
     given-names: Risav
     affiliation: "CoSys Work Pvt. Ltd."
+    orcid: "https://orcid.org/0009-0005-6682-9473"
 version: "proofs-v1.0.0"
 doi: "10.5281/zenodo.24026063"
 date-released: "2026-11-07"
@@ -23,3 +24,14 @@ keywords:
   - polynomial functors
   - Mealy machines
   - local-first software
+references:
+  - type: article
+    title: "Collaboration Is Composition: Mealy Machines over Signed Records in Poly and Org"
+    authors:
+      - family-names: Karna
+        given-names: Risav
+        affiliation: "CoSys Work Pvt. Ltd."
+        orcid: "https://orcid.org/0009-0005-6682-9473"
+    year: 2026
+    doi: "10.5281/zenodo.24026645"
+    url: "https://doi.org/10.5281/zenodo.24026645"
