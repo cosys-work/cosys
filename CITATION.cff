@@ -11,6 +11,9 @@ authors:
   - family-names: Karna
     given-names: Risav
     affiliation: "CoSys Work Pvt. Ltd."
+version: "proofs-v1.0.0"
+doi: "10.5281/zenodo.24026063"
+date-released: "2026-11-07"
 repository-code: "https://github.com/cosys-work/cosys"
 url: "https://cosys.work"
 license: Apache-2.0

@@ -34,6 +34,8 @@ Machines over Signed Records in Poly and Org*. `CosysCore`, in core Lean, covers
 record sets and trust as a fibration over observers. `CosysCalco`, on Mathlib, covers congruence,
 order independence for monotone boxes, claims as types and grades. Build instructions and a map from
 files to results are in [proofs/README.md](proofs/README.md).
+Release `proofs-v1.0.0` is archived on Zenodo under the DOI
+[10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063).
 
 ## How this repository is made
 
