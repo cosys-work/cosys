@@ -1,0 +1,56 @@
+name: Release
+
+# Publishes a GitHub release for each notes file under releases/ whose tag does not exist yet. A
+# file's name is its tag (releases/proofs-v1.0.0.md is the tag proofs-v1.0.0), its first line, a
+# "# " heading, is the release's title, and the rest is its notes. The tag is made on the commit
+# that brought the file to main. Zenodo archives every published release of this repository and
+# gives it a DOI. The release waits for the proofs to build and for Check.lean to print their axioms.
+on:
+  push:
+    branches: [main]
+    paths: ['releases/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  proofs:
+    name: Build the proofs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: proofs
+          build: true
+          test: false
+          lint: false
+
+      - name: Print the axioms behind each main result
+        working-directory: proofs
+        run: lake env lean Check.lean
+
+  release:
+    name: Publish new releases
+    needs: proofs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish each notes file whose tag is new
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          shopt -s nullglob
+          for notes in releases/*-v[0-9]*.md; do
+            tag="$(basename "$notes" .md)"
+            if gh release view "$tag" >/dev/null 2>&1; then
+              echo "$tag is already released"
+              continue
+            fi
+            title="$(head -n 1 "$notes" | sed 's/^# *//')"
+            sed '1d' "$notes" | sed '/./,$!d' > "$RUNNER_TEMP/notes.md"
+            gh release create "$tag" --target "$GITHUB_SHA" --title "$title" --notes-file "$RUNNER_TEMP/notes.md"
+          done
