@@ -8,4 +8,6 @@ whose Lean proofs are in `proofs/`.
 - `what-absence-costs.tex` is the main file; each section is in `sections/`.
 - `refs.bib` holds the references, author-date.
 
-Build with `make` (pdflatex and bibtex). `make anon` builds the copy for double-anonymized review.
+Build with `make` (pdflatex and bibtex): headings carry titles only, and the text refers to a
+section by its title. `make anon` builds the copy for double-anonymized review, with no author line
+and with headings numbered in the journal's decimal style.

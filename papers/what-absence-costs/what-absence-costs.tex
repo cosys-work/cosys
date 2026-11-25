@@ -1,7 +1,9 @@
 % What Absence Costs: which social facts need an authority, and who may hold it.
-% For Philosophy & Technology: author-date references, footnotes (never endnotes), decimal headings
-% to three levels. Build: `make` (pdflatex, bibtex, pdflatex twice); `make anon` drops the author
-% line and the acknowledgements for double-anonymized review.
+% Ideas and laws only, in our voice ("we"), as built: no implementation choices, versions, hosts or
+% project status. Headings carry titles only, and the text refers to a section by its title. The
+% copy for Philosophy & Technology (`make anon`) drops the author line and numbers its headings in
+% the journal's decimal style, to three levels; references are author-date and notes are footnotes.
+% Build: `make` (pdflatex, bibtex, pdflatex twice).
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[T1]{fontenc}
@@ -17,6 +19,13 @@
 
 \newif\ifanon
 \ifdefined\anon\anontrue\else\anonfalse\fi
+\ifanon
+  \setcounter{secnumdepth}{3}
+\else
+  \setcounter{secnumdepth}{0}
+\fi
+% A section is referred to by its title, in italics.
+\newcommand{\secref}[1]{\emph{\nameref{#1}}}
 
 \hypersetup{pdftitle={What Absence Costs}}
 \title{What Absence Costs}
