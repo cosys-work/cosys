@@ -8,9 +8,10 @@ that no member, anywhere, has an objection in their pocket. What the chair can d
 the objections raised by now are the ones that count. After that, a member who objects next week
 starts a new proposal, and this one stays closed.
 
-\citet{smithsearle2003} pressed Searle with cases of contested property, where ownership rests on
-what Smith called a negative basis, the absence of any competing claim, and Searle answered that
-problems of that kind are addressed by legal or political means. The sort says why both are right. A
+In their exchange, Smith pressed Searle with the case of a painting that went undocumented for
+decades, whose owners held it on what Smith called a negative basis, the absence of any competing
+claim, and Searle answered that disputes of that kind are settled by judges and lawyers
+\citep[pp.~289--290, 307]{smithsearle2003}. The sort says why both are right. A
 court closes the record: it declares that the claims before it are all the claims that count.
 
 We call such a declaration a \emph{seal}. A land registry seals the titles to a plot, and an editor
@@ -47,14 +48,15 @@ remains, shared among the people the question concerns.
 
 Cameras have begun to sign their photographs, attaching a credential that says which device made a
 picture and that nothing has changed since. In September 2025 a photographer, Adam Horshack, showed
-that a camera with this feature could be made to sign a picture it never took, by overlaying an
-image made elsewhere in its multiple-exposure mode, and the result passed the public verification
-tool \citep{petapixel2025a}. The manufacturer suspended the service and later announced that it would
-revoke every certificate it had issued \citep{petapixel2025b}.
+that a camera with this feature could be made to sign a picture it never took. Its multiple-exposure
+mode signed an overlay of an image taken with a second camera, and the result passed the public
+verification tool \citep{petapixel2025a}; a later attempt had it sign an image made with a generative
+model \citep{petapixel2025c}. The manufacturer suspended the service \citep{petapixel2025b} and then
+announced that the certificates it had issued would be invalidated \citep{petapixel2025c}.
 
-The case shows what a signature can make true. A content credential
-checks that a record is well formed, that it is untouched, and that a signer on a trusted list signed
-it \citep{c2pa}. Those checks establish the kind of fact a signature can ground: this signer vouched
+The case shows what a signature can make true. Validating a content
+credential checks its signature and the signer's credential, whether that credential was valid and
+unrevoked when it signed, and that the content has not changed since \citep{c2pa}. Those checks establish the kind of fact a signature can ground: this signer vouched
 for this file. Whether the scene in the file took place is a different kind of fact, and no signature
 settles it. As generative models write more records of events that never happened, the question to
 ask of a record moves from what it shows to who stands behind it.
@@ -65,8 +67,10 @@ unless something defeats them, such as a revocation, an appeal, or an exception 
 later. Every defeasible status, from a valid license to a current dose, hides an absence. A verifier
 that never received the revocation goes on calling the credential valid, with nobody having done
 anything wrong, because its grounding condition asked for an absence and nobody had sealed the list
-of revocations it consulted. A revocation list that is published, signed and dated is such a seal,
-and a verifier that checks one can say that a credential was valid as of that list.
+of revocations it consulted. In the camera's case the commonly used validation tools did not check
+revocation by default \citep{petapixel2025c}, so a revoked credential could go on passing. A
+revocation list that is published, signed and dated is such a seal, and a verifier that checks one
+can say that a credential was valid as of that list.
 
 \subsection{Where authority goes}\label{sec:where}
 

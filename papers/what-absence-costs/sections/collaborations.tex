@@ -12,21 +12,22 @@ signed. Anyone who holds a record and the signer's public key can check both wit
 whose inputs and outputs are signed records and whose state is a fold over its log. A collaboration
 wires existing boxes together through mailboxes, and the result is again a box, so collaborations
 nest: a team that forms a team adds one more box and a few wires, and the boxes already there do not
-change. Nothing outside the boxes and the wires coordinates them. Where an orchestrator is useful, it
-joins as one more party, with its own log and its own signature.
+change. Nothing outside the boxes and the wires coordinates them, and the model has no central
+coordinator. On this view an orchestrator, where one is useful, takes part as one more party, with its
+own log and its own signature.
 
 A box is monotone when more records never take away an output it has already produced. The CALM
 theorem, for Consistency As Logical Monotonicity, says when a distributed program can give consistent
 answers without its machines stopping to agree. \citet{hellerstein2010} conjectured it,
-\citet{ameloot2013} proved it for networks of relational transducers, and \citet{hellerstein2020}
+\citet{ameloot2013} proved it, in a revised form, for networks of relational transducers, and \citet{hellerstein2020}
 give the general account: a program has a consistent implementation without coordination exactly
 when it is monotone. Their own illustration is garbage collection, where a machine may discard an
 object only when no other machine still refers to it, and the only way to know it has heard from
-everyone is to ask them all and wait. \citet{karna2026} proves its own form of the result, checked in
-Lean 4, for boxes over signed records. When every box is monotone, the logs and views of a
+everyone is to ask them all and wait. \citet{karna2026} proves its own form of the result for boxes over signed
+records, with the proofs checked in Lean 4 \citep{karna2026proofs}. When every box is monotone, the logs and views of a
 collaboration do not depend on the order or duplication of deliveries. A step that depends on a
 record being absent can come out differently under two fair delivery orders, and the model asks for a
-co-signature at that step.
+coordinating signature at that step, such as a co-signed receipt or a witnessed timestamp.
 
 Trust in this setting is indexed by its observer. No view of the shared record exists apart from
 someone holding it. Each observer ranks what it holds inside its own fiber of trust, in the model's

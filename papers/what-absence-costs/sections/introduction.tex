@@ -21,9 +21,9 @@ append-only log of signed records, and a collaboration as such machines wired to
 collaboration is itself a machine and can be wired into a larger one. It proves, in a form of the
 CALM theorem \citep{hellerstein2020,ameloot2013}, that when every machine only adds to what it has,
 the parties reach the same logs and views whatever order their messages arrive in, with no
-orchestrator keeping them in step. It also proves the converse case: a step that depends on a record
-being absent can come out differently under two fair orders of delivery, and there the model asks
-for a co-signature, or a timestamp from a witness the parties share. That paper says where
+orchestrator keeping them in step. It also proves that a step which depends on a record being absent
+can come out differently under two fair orders of delivery, and there the model asks for a
+coordinating signature, such as a co-signed receipt or a witnessed timestamp. That paper says where
 coordination is needed in a collaboration of machines. It leaves open what the coordinated steps are
 in the social world the records describe, and who may take them. This paper takes up both questions.
 

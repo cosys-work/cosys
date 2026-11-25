@@ -128,7 +128,7 @@ The frame we have defended elsewhere for collaborations of this kind holds rules
 contractualist test: a rule that changes what others may do stands only if every party it binds has
 co-signed it.\footnote{The test sits beside a second condition, that no party can write to another's
 log, so a party bound by nothing it did not sign also keeps everything it did sign.} The test follows
-\citet{scanlon1998}, on whose account an act is wrong when principles that no one could reasonably
+\citet[p.~153]{scanlon1998}, on whose account an act is wrong when principles that no one could reasonably
 reject, as a basis for informed and unforced general agreement, would disallow it. The co-signatures
 are the record that nobody bound by the rule rejected it.
 
@@ -213,8 +213,9 @@ readers fetch while the window lasts.
 Concurrent revocation also opens a way to abuse standing, and builders of local-first software have
 met it as the problem of duelling administrators. Administrators with equal rights revoke each
 other concurrently, and the merged state does not say who prevails. A rule that breaks the tie by
-seniority can be gamed: the senior administrator can backdate a revocation so that it appears
-concurrent with the junior's, and so roll the junior's revocation back. \citet{dougal2026} argues
+seniority can be gamed: a senior administrator who has been revoked can backdate a revocation of the
+other so that the two appear concurrent, and seniority then rolls back the revocation the senior
+received. \citet{dougal2026} argues
 that a Byzantine administrator can exploit concurrency in this way to sway the outcome, so that an
 arbiter outside the group's merge has to order concurrent events, and proposes optional epoch events
 that give a bounded total order within each epoch. In the terms of this paper an epoch event does
@@ -222,9 +223,9 @@ the work of a seal: it declares which revocations count as earlier, and from the
 a fact grounded in a record. An arbiter held by one party would be the elevated member of
 \secref{sec:sealers}, and an arbiter built as a facade over a quorum orders the epoch without any
 single member holding that power.\footnote{Other designs choose a different frame principle in
-advance. A strong-removal rule lets a removal prevail over every concurrent act of the member
-removed \citep{p2panda-auth}, which settles the duel without an arbiter by giving every removal the
-same precedence, and moves the risk of abuse to whoever can remove.}
+advance. A strong-removal rule invalidates every concurrent act of a removed or demoted manager and
+lets mutual removals both stand \citep{p2panda-auth}, which settles the duel without an arbiter by
+removing both, and moves the risk of abuse to whoever can remove.}
 
 The case shows what a seal can do about bad faith and where it stops. The epoch event never detects
 that the senior administrator backdated anything. A device's timestamp is a claim the device makes
@@ -235,13 +236,13 @@ taking the profit out of the abusive move.
 
 \subsection{Disputes, sanctions and nested appeal}\label{sec:disputes}
 
-\citet{ostrom1990} found that institutions which governed common resources for generations share a
+\citet[Table~3.1, p.~90]{ostrom1990} found that institutions which governed common resources for generations share a
 set of design principles, among them monitors who are accountable to the users or are users
 themselves, sanctions graduated by the seriousness and context of an offense, conflict-resolution
 mechanisms that are cheap and close at hand, recognition by outside authorities of the users' right
 to devise their own institutions, and, in larger systems, governance organized in nested layers. A
-meta-analysis of the studies that tested the principles afterwards found them well supported
-\citep{cox2010}. Each maps onto a design of records without strain.
+review of 91 studies that tested the principles found them well supported and proposed a
+reformulation \citep{cox2010}. Each maps onto a design of records without strain.
 
 Monitoring comes almost free, since every act is a signed record and its signer is known. What
 remains is that the people an act concerns can see it, which is a question of who receives which
@@ -268,9 +269,9 @@ recognition says why a chain of appeal needs to end in an institution that recog
 own rules.
 
 Who should sit on a panel is a question the evidence leaves open. In a survey experiment with
-Facebook users, \citet{pan2022} found expert panels perceived as more legitimate than paid
-contractors, algorithms or juries of users, and found that agreeing with a decision mattered more to
-its perceived legitimacy than the process that produced it. A frame can choose either kind of panel,
+Facebook users, \citet{pan2022} found expert panels perceived as more legitimate than algorithms or
+juries of users, and found that agreeing with a decision mattered more to its perceived legitimacy
+than the process that produced it. A frame can choose either kind of panel,
 and it gains from making the choice in advance and on the record, before any particular outcome is
 at stake.
 
