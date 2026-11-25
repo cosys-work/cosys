@@ -1,0 +1,35 @@
+% D9, after D1 (collective acceptance) to D8 (defeasibility).
+\subsection{Seals relocate authority without constraining it}\label{sec:obj-relocate}
+
+\paragraph{The objection.} A signature shows who issued a record, and a validator shows that the
+record met the rules of its kind. Neither detects a decision made in bad faith by someone acting
+within valid standing. Trust in this design is indexed by its observer, and nothing enforces a
+verdict on everyone, so the sort moves authority to whoever holds a seal and leaves it unchecked
+there. A design that spreads records across many hands without governance, dispute resolution or
+consequences for abuse could then turn out worse than the central systems it means to replace.
+
+\paragraph{Reply.} I accept the premise. The thesis concerns the necessity of authority, fact by
+fact, and leaves open which authority is legitimate. \citet{reijers2016} put the second question to
+blockchain governance; this paper puts the first, and a seal does nothing on its own to make its
+holder just.
+
+The objection still overreaches in its conclusion, for reasons \cref{sec:anchoring} develops. A
+charge of abuse comes apart along the lines of the sort: its procedural parts are monotone and
+anyone holding the records can check them, its parts that ask for an absence need a seal, and its
+parts about intent need judgment, which the sort locates without performing (\cref{sec:charge}).
+The objection has the shape of Hart's case against a regime of primary rules alone, and the remedy
+takes the shape of his: rules of recognition, change and adjudication, written as records and
+co-signed by the parties they bind (\cref{sec:secondary}). With those rules in place, the comparison
+with a central system favors the design of records, since a platform seals in private while every
+seal here is a signed record that names its signers (\cref{sec:central}).
+
+The concern also has independent support from engineering. Builders of local-first group
+management met the same problem as duelling administrators who revoke each other concurrently, and
+concluded that an arbiter outside the merge has to order concurrent revocations, because a Byzantine
+administrator can otherwise exploit the concurrency \citep{dougal2026}. The sort predicts exactly
+this: revocation asks for an absence, so it needs a sealed order (\cref{sec:suspension}).
+
+What the sort cannot supply is the content of the secondary rules: who sits on a panel, which
+quorum may suspend an office, how long a suspension takes to reach every reader. Those are choices a
+group makes when it anchors its frame. The paper claims to show where such choices have to be made,
+and that a design of records can make them in view of everyone they bind.
