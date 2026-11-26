@@ -1,0 +1,101 @@
+\section{Objections and replies}\label{sec:objections}
+
+\subsection{Status functions need collective acceptance, and records do not supply it}
+\label{sec:obj-acceptance}
+
+\paragraph{The objection.} Institutional facts exist only as long as they are recognized
+\citep{searle1995,searle2010}. A log that nobody accepts creates nothing, so grounding conditions on
+records leave out the one thing that makes a social fact social.
+
+\paragraph{Reply.} We do not claim that records replace acceptance. Acceptance attaches to the
+constitutive rule, such as the committee's rule that a record signed by three members counts as an
+endorsement. Given the rule, each new fact under it is fixed by the records, which is how Searle
+treats standing declarations that apply a rule to case after case \citep{searle2010}, and how
+\citet{ferraris2013} treats documents that inscribe acts. The sort concerns the facts that a frame,
+once accepted, makes depend on records.
+
+\subsection{Grounding is confused with anchoring}\label{sec:obj-anchoring}
+
+\paragraph{The objection.} \citet{epstein2015} separates what makes a social fact hold from what
+puts the frame in place. A sort of grounding conditions says nothing about the frame, and the frame
+is where the interesting questions of authority live.
+
+\paragraph{Reply.} The sort applies to grounding conditions under fixed frame principles, as
+\secref{sec:grounding} states. It also has a corollary for anchoring. Changing a frame asks that no
+party still holds the old terms, which is an absence, so a change of frame needs coordination too.
+\secref{sec:anchoring} develops what that requires.
+
+\subsection{A signature evidences a fact and does not make it}\label{sec:obj-evidence}
+
+\paragraph{The objection.} Smith presses the point that a record of something is not the thing: an
+IOU records a debt and is not itself the debt \citep[p.~289]{smithsearle2003}. A signed record can show that a fact
+holds without being what makes it hold.
+
+\paragraph{Reply.} The thesis concerns constitutive records: documents that inscribe an act, in
+Ferraris's sense, and what \citet{smith2012} calls document acts. An endorsement, a co-signed seal and
+a prescription are acts performed by signing. Many records are evidential, such as the meter's
+glucose readings, and the thesis does not make them constitutive of the glucose level. Even an
+evidential record grounds institutional facts about itself, such as that this reading was entered by
+this meter, and grounds them monotonically.
+
+\subsection{A co-signature is not a joint commitment}\label{sec:obj-joint}
+
+\paragraph{The objection.} Joint commitment, in Gilbert's sense, requires open expressions of
+readiness under common knowledge, and creates obligations directed to the other parties. A
+cryptographic co-signature may amount to two individual commitments, or to a conditional exchange of
+promises. Theorists of shared intention also deny that joint commitment is needed for joint action
+\citep{kopec2018}.
+
+\paragraph{Reply.} A co-signed seal meets Gilbert's conditions in the respects that matter here. Each
+signature is an open expression of readiness. The record names every co-signer and is shared among
+them, which approximates common knowledge. The seal can be reopened only by a further record
+co-signed by the same parties, which matches Gilbert's condition that a joint commitment ends only by
+the parties together \citep{gilbert2013}. We offer this as a sufficient reading of a co-signed seal as
+a joint act, and leave open whether every joint action requires one.
+
+\subsection{Absence facts reduce to positive facts with a timestamp}\label{sec:obj-timestamp}
+
+\paragraph{The objection.} ``No objection by the deadline'' is a positive fact about what a log
+contains at a time, so absence facts need no special treatment.
+
+\paragraph{Reply.} Locally this is true, and it is exactly the CALM theorem's point. The fact that a
+party has seen no objection by a time is monotone and safe to state. The institutional fact that no
+objection exists is not, because a late or partitioned record can falsify it, and the only way to
+know one has heard from everyone is to coordinate \citep{hellerstein2020}. A deadline settles the
+institutional fact only if the parties have jointly committed to the deadline as the closing rule,
+so the timestamp presupposes the coordination it was meant to remove. Armstrong's totality facts give
+the metaphysical parallel: that these are all the facts of a kind is a further fact
+\citep[ch.~13]{armstrong1997}.
+
+\subsection{The CALM theorem does not transfer}\label{sec:obj-transfer}
+
+\paragraph{The objection.} The theorem concerns monotone queries over networks of relational
+transducers \citep{ameloot2013}. Applying it to social facts is an analogy.
+
+\paragraph{Reply.} The result this paper relies on is proved for its own model, machines over signed
+records, and checked in Lean 4 \citep{karna2026}. The theorem has also been generalized beyond
+relational transducers, to weaker forms of monotonicity \citep{ameloot2015} and to a semantic
+criterion over specifications \citep{hellerstein2026}, and its monotonicity criterion has been applied
+to organizational tasks \citep{ju2026}. The claim is stated conditionally throughout: insofar as an institution's facts are
+functions of records, the sort applies to them.
+
+\subsection{This is the social ontology of blockchains again}\label{sec:obj-blockchain}
+
+\paragraph{The objection.} The social ontology of blockchains already studies how institutional facts
+can rest on shared records \citep{reijers2018,davidson2018,suzuki2026}.
+
+\paragraph{Reply.} A blockchain imposes global consensus on every fact. The sort shows that this is
+unnecessary for monotone facts, which are most of them. Global consensus is one costly way of
+coordinating for absence facts, and a co-signature among the parties a question names is another,
+spent only where an absence matters.
+
+\subsection{Institutions are defeasible, and revocation breaks monotonicity}\label{sec:obj-defeasible}
+
+\paragraph{The objection.} Legal and institutional statuses are defeasible \citep{hart1949}: a
+license can be revoked and a decision appealed \citep{prakken2004}. A theory built on monotone records
+cannot represent them.
+
+\paragraph{Reply.} The log stays monotone, and derived statuses such as a valid license or a current
+dose may not be. Revocation is precisely an absence-dependent status, since a license is valid only
+if no revocation of it exists. Defeasibility therefore confirms the sort, and a revocation list that
+is published, signed and dated is the seal that lets a verifier say valid as of that list.

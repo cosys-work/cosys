@@ -1,0 +1,54 @@
+\section{Introduction}\label{sec:intro}
+
+A thousand-rupee note and a sheet of paper printed with the same inks weigh the same. The note buys
+groceries and the sheet buys nothing, and the difference lies in the shopkeeper, the bank that issued
+the note and everyone who will take it tomorrow because they expect others to take it too. Social
+ontology studies differences of this kind: how money, marriages, licenses, committees and decisions
+come to exist because people take them to exist \citep{searle1995}. Much of that taking is now done
+through records, and the records are moving out of drawers and registries into systems that hold
+them for us: platforms, clouds, shared ledgers, and software agents that write records on our
+behalf. Each of these systems makes a choice, usually without saying so, about who settles which
+facts. A platform that holds everyone's records settles all of them. A global ledger makes every
+participant agree on every fact.
+
+This paper asks which social facts need an authority behind them, someone with the standing to
+settle them, and which ones anybody holding the right records can settle alone. The answer we defend
+turns on whether a fact asks for something to exist or for something not to exist.
+
+The question comes out of earlier work on collaborations among parties that keep their own records.
+\emph{Collaboration Is Composition} \citep{karna2026} models each party as a machine over an
+append-only log of signed records, and a collaboration as such machines wired together, so that a
+collaboration is itself a machine and can be wired into a larger one. It proves, in a form of the
+CALM theorem \citep{hellerstein2020,ameloot2013}, that when every machine only adds to what it has,
+the parties reach the same logs and views whatever order their messages arrive in, with no
+orchestrator keeping them in step. It also proves that a step which depends on a record being absent
+can come out differently under two fair orders of delivery, and there the model asks for a
+coordinating signature, such as a co-signed receipt or a witnessed timestamp. That paper says where
+coordination is needed in a collaboration of machines. It leaves open what the coordinated steps are
+in the social world the records describe, and who may take them. This paper takes up both questions.
+
+Our thesis is that the CALM line runs through social facts as soon as those facts are grounded in
+records kept in many hands. A fact whose grounding condition only asks that certain records exist
+can be settled by anyone who holds them, in any order, and never has to be taken back. A fact whose
+grounding condition asks for an absence cannot be settled that way by anyone, however careful, until
+some coordination has happened. We call the coordinating act a seal: a declaration, in Searle's
+sense, that a set of records counts as complete for a question. Once a seal exists the absence fact
+rests on the seal, which is a record like any other, and the fact travels freely again. A seal can
+come from a chair, a court or a registry, and it can also come from the parties the question
+concerns, signing together in the way Gilbert describes joint commitment. Authority is needed where
+absence matters, and where it is needed it can be shared.
+
+A seal settles a question for everyone who accepts it, and whoever holds the standing to seal can
+seal in bad faith. The second half of the paper therefore asks who may seal. We argue that the rules
+which confer that standing have to be written as records too, as Hart's secondary rules, built by the
+people they bind through consensus, customized by groups through additions that stay monotone, and
+changed in any other way only through the legal pathways for changing regulation. Governing bodies
+act through one facade over a quorum of their members, and appeals end in institutions outside the
+collaboration.
+
+The paper proceeds as follows. \secref{sec:collab} sets out the setting of monotone, composable
+collaborations. \secref{sec:grounding} introduces grounding conditions, and \secref{sec:sort} sorts
+them. \secref{sec:seals} defines seals and shows how they can be shared. \secref{sec:anchoring}
+asks who may seal. \secref{sec:objections} answers the objections a philosopher would raise, and \secref{sec:conclusion}
+closes. Throughout, the claim is conditional: insofar as an institution's facts are functions of
+records \citep{ferraris2013}, the sort applies to them.

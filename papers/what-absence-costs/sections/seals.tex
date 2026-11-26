@@ -1,0 +1,84 @@
+\section{Seals}\label{sec:seals}
+
+Back at the committee, Sita's proposal has its endorsements and the vote passes. The committee's
+rule says a decision is final only when no objection remains open. The chair looks around the room
+and asks, ``Any objections?'' There is a pause. ``Hearing none, the motion carries.'' The ritual is
+older than any computer, and it does what the CALM theorem says must be done. The chair cannot know
+that no member, anywhere, has an objection in their pocket. What the chair can do is declare that
+the objections raised by now are the ones that count. After that, a member who objects next week
+starts a new proposal, and this one stays closed.
+
+In their exchange, Smith pressed Searle with the case of a painting that went undocumented for
+decades, whose owners held it on what Smith called a negative basis, the absence of any competing
+claim, and Searle answered that disputes of that kind are settled by judges and lawyers
+\citep[pp.~289--290, 307]{smithsearle2003}. The sort says why both are right. A
+court closes the record: it declares that the claims before it are all the claims that count.
+
+We call such a declaration a \emph{seal}. A land registry seals the titles to a plot, and an editor
+closes an issue. Each performs a status function declaration in Searle's sense, making it the case
+that a set of records counts as complete for a question. Once the seal exists, the absence fact can
+be grounded in the seal itself, which is a record like any other. The decision of the meeting holds
+as long as the seal exists, and adding records can never remove it, so the fact has become monotone
+again. Coordination was spent once, at the moment of sealing, and after that the fact travels freely.
+Seen this way, an authority may know no more than anyone else. In a world of records kept in many
+hands nobody can know that nothing is missing, and what an authority has is the standing to make
+what is missing stop counting.
+
+\subsection{Sealing together}\label{sec:joint}
+
+A seal can come from somewhere other than a chair, a court or a registry. In Gilbert's best-known
+example, two friends agree to walk to the market together, and halfway there one of them speeds up
+and leaves the other behind without a word \citep{gilbert1990}. Something has gone wrong, and both
+know it. The one left behind has the standing to object, and neither of them can call the walk off
+alone: it took both to begin it, and it takes both to end it. Gilbert calls what holds them a joint
+commitment, through which two or more people form a plural subject with commitments of its own that
+no single member can undo \citep{gilbert2013}.
+
+A seal can be made this way. Every party the question names signs a record naming the same set of
+records, and the seal exists when all the signatures do. Each signature is an open and checkable
+expression of readiness, every signer can see who else signed, and none of them can unseal it alone:
+reopening takes another record signed by the same parties, so even a change of mind becomes one more
+record in the history. At the clinic this is a handover. Before the day doctor leaves, she and the
+night nurse co-sign the set of prescriptions the current dose is computed from, and the patient can
+sign it too. The nurse no longer has to guess whether a newer prescription is hiding somewhere,
+since she works from a set that the people responsible for it sealed together. The authority to seal
+remains, shared among the people the question concerns.
+
+\subsection{What a signature can vouch for}\label{sec:vouch}
+
+Cameras have begun to sign their photographs, attaching a credential that says which device made a
+picture and that nothing has changed since. In September 2025 a photographer, Adam Horshack, showed
+that a camera with this feature could be made to sign a picture it never took. Its multiple-exposure
+mode signed an overlay of an image taken with a second camera, and the result passed the public
+verification tool \citep{petapixel2025a}; a later attempt had it sign an image made with a generative
+model \citep{petapixel2025c}. The manufacturer suspended the service \citep{petapixel2025b} and then
+announced that the certificates it had issued would be invalidated \citep{petapixel2025c}.
+
+The case shows what a signature can make true. Validating a content
+credential checks its signature and the signer's credential, whether that credential was valid and
+unrevoked when it signed, and that the content has not changed since \citep{c2pa}. Those checks establish the kind of fact a signature can ground: this signer vouched
+for this file. Whether the scene in the file took place is a different kind of fact, and no signature
+settles it. As generative models write more records of events that never happened, the question to
+ask of a record moves from what it shows to who stands behind it.
+
+It also shows where absence enters. A credential stays valid only while its certificate has not been
+revoked. Statuses of this kind are defeasible in the lawyer's sense \citep{hart1949}: they hold
+unless something defeats them, such as a revocation, an appeal, or an exception that comes to light
+later. Every defeasible status, from a valid license to a current dose, hides an absence. A verifier
+that never received the revocation goes on calling the credential valid, with nobody having done
+anything wrong, because its grounding condition asked for an absence and nobody had sealed the list
+of revocations it consulted. In the camera's case the commonly used validation tools did not check
+revocation by default \citep{petapixel2025c}, so a revoked credential could go on passing. A
+revocation list that is published, signed and dated is such a seal, and a verifier that checks one
+can say that a credential was valid as of that list.
+
+\subsection{Where authority goes}\label{sec:where}
+
+The systems that now hold our records each settle facts in their own way. A platform that holds
+everyone's records settles all of them, monotone or not, and becomes the authority over facts that
+never needed one. A global ledger makes every participant agree on every fact, including the many
+that only ask for a record to exist. The sort points to a third design. Records stay with the people
+who signed them, every monotone fact is settled by whoever holds the records, and coordination is
+spent only where a fact asks for an absence, among the people that fact concerns, who seal it
+together. Authority is needed where absence matters, and where it is needed, it can be shared. That
+leaves the question of who may hold it.
