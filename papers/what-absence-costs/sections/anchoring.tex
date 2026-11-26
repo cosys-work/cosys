@@ -102,8 +102,11 @@ Groups customize the system by adding to it. A group adds the concepts of its so
 rules, targets and policies, and the views its members read through, each co-signed by the members
 it binds. A customization of this kind is monotone: it leaves in force everything the members and
 the layers around them already hold, so it needs no coordination beyond the co-signatures of those
-it binds. A change that takes something away asks for more. Narrowing a right a member holds, setting aside a rule of a wider layer, or rewriting a settled term asks that nobody still
-relies on what is removed, which is an absence. Within its own frame a group can make such a change
+it binds.\footnote{\texttt{extends\_facts} and \texttt{extends\_positive} in
+\texttt{proofs-v1.1.0}.} A change that takes something away asks for more. Narrowing a right a member holds, setting aside a rule of a wider layer, or rewriting a settled term asks that nobody still
+relies on what is removed, which is an absence.\footnote{\texttt{inForce\_asks\_absence} in
+\texttt{proofs-v1.1.0}: a rule in force from its adoption until a repeal asks for an absence once a
+repeal can be written, and asks only for records while none can (\texttt{inForce\_positive}).} Within its own frame a group can make such a change
 only by the co-signature of every party it binds, the way the parties to an agreement amend it. A
 change that takes something from a wider layer goes the way regulation changes, through the legal
 pathways for adjusting it, where a body with the standing to seal decides.
@@ -112,7 +115,9 @@ Layers meet by translation. A term crosses from one vocabulary into another only
 have signed that the two terms mean the same, and the translation carries a round-trip law:
 exporting a record into the other vocabulary and importing it back returns the record unchanged.
 Where a mapping is many-to-one, a lens keeps the part the wider vocabulary drops, so the round trip
-still holds. A sociolect never overwrites the idiolects of its members, and a person's term reaches
+still holds.\footnote{\texttt{Translation.injective} and \texttt{translate\_positive} in
+\texttt{proofs-v1.1.0}: a translation with such a complement loses no record, and a fact that asks
+only for records in the wider vocabulary still does when read through it.} A sociolect never overwrites the idiolects of its members, and a person's term reaches
 the national vocabulary through the group's, with each step co-signed by the parties on both sides.
 
 National law binds people who never co-signed it, and no frame can make it consensual. What a frame can do is record the point of contact: a group
@@ -153,7 +158,9 @@ fixed in the frame by the unanimous co-signature of its parties at the outset.
     higher threshold and a decision by a panel under the rules of adjudication.
   \item What concerns one person alone. A person's access to their own records, their leaving with
     their own history and their right to appeal are fixed in the frame as matters that need that
-    person's own signature, and no quorum reaches them.
+    person's own signature, and no quorum reaches them.\footnote{\texttt{personal\_beyond\_quorum}
+    in \texttt{proofs-v1.1.0}: while the person has signed nothing, no record of such a matter
+    stands, whatever the rest of the body signed.}
 \end{enumerate}
 Projects that govern themselves in the open set their thresholds in the same order. Debian's
 developers may recall the project leader by a general resolution, overrule the technical committee
@@ -188,10 +195,19 @@ standing as a facade over the layer it governs.
 
 The facade's signature needs a quorum of the members. It can be a threshold signature, which
 verifies as a single key once enough members have contributed their shares \citep{rfc9591}, or a
-list of co-signatures under the record that founded the body. Either way each member's part stays
+list of co-signatures under the record that founded the body. A quorum asks for any large enough
+subset of the members, where the authority rules of \citet{karna2026} ask for a fixed set of
+signatures. It is a positive Boolean condition on the signatures a record carries, the kind of
+expression that already describes provenance there, so a record that a quorum signed keeps its
+standing as the log grows.\footnote{\texttt{quorum\_monotone}, \texttt{posBool\_monotone} and
+\texttt{claimBy\_mono} in \texttt{proofs-v1.1.0}, where \texttt{claimBy\_conj} recovers the rules
+of \citet{karna2026}. Over finitely many signatures, every rule that more signatures never undo has
+this form (\texttt{rule\_iff\_posBool}).} Either way each member's part stays
 in the body's inner log, so the attribution that accountability depends on survives behind the
 facade. Changing who sits on the body changes its frame and falls under the first tier, which keeps
-a captured majority from rotating the honest members out on its own authority. Members hold
+a captured majority from rotating the honest members out on its own
+authority.\footnote{\texttt{facade\_attribution}, \texttt{facade\_minority} and
+\texttt{no\_rotation\_by\_capture} in \texttt{proofs-v1.1.0}.} Members hold
 expiring grants, and the facade's key is renewed at each epoch, so a stolen or poisoned share loses
 its value when the epoch ends. The facade that suspends and the facade that judges have disjoint
 members.
@@ -206,9 +222,16 @@ A suspension is a revocation, and revocation asks for an absence: an office-hold
 counts only if no suspension of it came first. A suspension therefore takes effect for each reader
 when that reader receives it, and an act the office-holder signed in the meantime is concurrent
 with the suspension from that reader's point of view. No arrangement of signatures makes a
-suspension take effect everywhere at once. The delay is part of what absence costs, and a frame can
+suspension take effect everywhere at once.\footnote{\texttt{suspension\_splits} in
+\texttt{proofs-v1.1.0}: a network of one reader has two fair orders of delivery, under one of which
+the reader counts the act while under the other it never does.} The delay is part of what absence costs, and a frame can
 only state it: a window within which a suspension is honored, paid for by fresh checkpoints that
 readers fetch while the window lasts.
+An office's seals carry the same cost. A seal made on a grant that can be suspended counts only if
+no suspension of the grant came first, so it asks for an absence, and the fact it seals grows with
+the log, as in \secref{sec:seals}, only as of a sealed checkpoint of
+grants.\footnote{\texttt{office\_seal\_asks\_absence} and \texttt{office\_seal\_asOf\_positive} in
+\texttt{proofs-v1.1.0}.}
 
 Concurrent revocation also opens a way to abuse standing, and builders of local-first software have
 met it as the problem of duelling administrators. Administrators with equal rights revoke each
@@ -231,7 +254,8 @@ The case shows what a seal can do about bad faith and where it stops. The epoch 
 that the senior administrator backdated anything. A device's timestamp is a claim the device makes
 about itself, and the records cannot ground its truth. What the seal takes away is the advantage:
 once a witness the parties named in advance has fixed the order, a later claim about an earlier time
-gains nothing. Much of the design of secondary rules has this shape, leaving intent to judgment and
+gains nothing.\footnote{\texttt{backdate\_changes\_outcome} and \texttt{epoch\_fixes\_order} in
+\texttt{proofs-v1.1.0}, on a small instance of the duel.} Much of the design of secondary rules has this shape, leaving intent to judgment and
 taking the profit out of the abusive move.
 
 \subsection{Disputes, sanctions and nested appeal}\label{sec:disputes}

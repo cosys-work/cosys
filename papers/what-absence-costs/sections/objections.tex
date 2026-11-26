@@ -59,7 +59,10 @@ a joint act, and leave open whether every joint action requires one.
 contains at a time, so absence facts need no special treatment.
 
 \paragraph{Reply.} Locally this is true, and it is exactly the CALM theorem's point. The fact that a
-party has seen no objection by a time is monotone and safe to state. The institutional fact that no
+party has seen no objection by a time is monotone and safe to state.\footnote{In
+\texttt{proofs-v1.1.0} a checkpoint that the party signs alone settles what it saw
+(\texttt{checkpoint\_positive}), and no set of records that party alone signed holds a seal of a
+frame whose closing rule names another party (\texttt{checkpoint\_not\_institutional}).} The institutional fact that no
 objection exists is not, because a late or partitioned record can falsify it, and the only way to
 know one has heard from everyone is to coordinate \citep{hellerstein2020}. A deadline settles the
 institutional fact only if the parties have jointly committed to the deadline as the closing rule,
@@ -73,11 +76,14 @@ the metaphysical parallel: that these are all the facts of a kind is a further f
 transducers \citep{ameloot2013}. Applying it to social facts is an analogy.
 
 \paragraph{Reply.} The result this paper relies on is proved for its own model, machines over signed
-records, and checked in Lean 4 \citep{karna2026}. The theorem has also been generalized beyond
+records, and checked in Lean 4 \citep{karna2026,karna2026social}. The theorem has also been generalized beyond
 relational transducers, to weaker forms of monotonicity \citep{ameloot2015} and to a semantic
 criterion over specifications \citep{hellerstein2026}, and its monotonicity criterion has been applied
 to organizational tasks \citep{ju2026}. The claim is stated conditionally throughout: insofar as an institution's facts are
-functions of records, the sort applies to them.
+functions of records, the sort applies to them.\footnote{The theorem, \texttt{calm\_social} in
+\texttt{proofs-v1.1.0}, carries two conditions. The possible records form a countable set, as
+records written as finite strings do. Wherever a fact asks for an absence, the absence shows between
+two sets of records that differ by finitely many.}
 
 \subsection{This is the social ontology of blockchains again}\label{sec:obj-blockchain}
 
@@ -98,4 +104,6 @@ cannot represent them.
 \paragraph{Reply.} The log stays monotone, and derived statuses such as a valid license or a current
 dose may not be. Revocation is precisely an absence-dependent status, since a license is valid only
 if no revocation of it exists. Defeasibility therefore confirms the sort, and a revocation list that
-is published, signed and dated is the seal that lets a verifier say valid as of that list.
+is published, signed and dated is the seal that lets a verifier say valid as of that list.\footnote{\texttt{valid\_asks\_absence}
+and \texttt{valid\_asOf\_positive} in \texttt{proofs-v1.1.0}, and for a rule kept as records that a
+later record can repeal, \texttt{inForce\_asks\_absence}.}

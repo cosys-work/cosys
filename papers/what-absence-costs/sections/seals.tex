@@ -19,7 +19,8 @@ closes an issue. Each performs a status function declaration in Searle's sense, 
 that a set of records counts as complete for a question. Once the seal exists, the absence fact can
 be grounded in the seal itself, which is a record like any other. The decision of the meeting holds
 as long as the seal exists, and adding records can never remove it, so the fact has become monotone
-again. Coordination was spent once, at the moment of sealing, and after that the fact travels freely.
+again.\footnote{\texttt{sealed\_positive} in \texttt{proofs-v1.1.0}. It asks one thing of the seal,
+that its authority rule never asks for more signatures as the log grows.} Coordination was spent once, at the moment of sealing, and after that the fact travels freely.
 Seen this way, an authority may know no more than anyone else. In a world of records kept in many
 hands nobody can know that nothing is missing, and what an authority has is the standing to make
 what is missing stop counting.
@@ -38,10 +39,16 @@ A seal can be made this way. Every party the question names signs a record namin
 records, and the seal exists when all the signatures do. Each signature is an open and checkable
 expression of readiness, every signer can see who else signed, and none of them can unseal it alone:
 reopening takes another record signed by the same parties, so even a change of mind becomes one more
-record in the history. At the clinic this is a handover. Before the day doctor leaves, she and the
+record in the history.\footnote{\texttt{joint\_needs\_each} and \texttt{reopen\_needs\_each} in
+\texttt{proofs-v1.1.0}: while one of the parties has signed nothing, there is neither a seal nor a
+reopening.} At the clinic this is a handover. Before the day doctor leaves, she and the
 night nurse co-sign the set of prescriptions the current dose is computed from, and the patient can
 sign it too. The nurse no longer has to guess whether a newer prescription is hiding somewhere,
-since she works from a set that the people responsible for it sealed together. The authority to seal
+since she works from a set that the people responsible for it sealed together. What the handover
+settles is the dose as of the handover. ``The latest handover'' asks for an absence again, since a
+later one may always be on its way, so a prescription written after the handover opens a new
+question for the next handover to settle.\footnote{\texttt{dose\_asOf\_handover\_positive} and
+\texttt{latest\_asks\_absence} in \texttt{proofs-v1.1.0}.} The authority to seal
 remains, shared among the people the question concerns.
 
 \subsection{What a signature can vouch for}\label{sec:vouch}
@@ -70,7 +77,9 @@ anything wrong, because its grounding condition asked for an absence and nobody 
 of revocations it consulted. In the camera's case the commonly used validation tools did not check
 revocation by default \citep{petapixel2025c}, so a revoked credential could go on passing. A
 revocation list that is published, signed and dated is such a seal, and a verifier that checks one
-can say that a credential was valid as of that list.
+can say that a credential was valid as of that list.\footnote{\texttt{valid\_asks\_absence} and
+\texttt{valid\_asOf\_positive} in \texttt{proofs-v1.1.0}, whose examples also check the camera's
+case.}
 
 \subsection{Where authority goes}\label{sec:where}
 
