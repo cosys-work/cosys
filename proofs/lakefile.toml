@@ -1,5 +1,5 @@
 name = "cosys-proofs"
-defaultTargets = ["CosysCore", "CosysCalco"]
+defaultTargets = ["CosysCore", "CosysCalco", "CosysSocial"]
 
 [[require]]
 name = "mathlib"
@@ -11,3 +11,6 @@ name = "CosysCore"
 
 [[lean_lib]]
 name = "CosysCalco"
+
+[[lean_lib]]
+name = "CosysSocial"

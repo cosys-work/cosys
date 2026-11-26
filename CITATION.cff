@@ -1,18 +1,19 @@
 cff-version: 1.2.0
 message: "If you use these libraries or proofs, please cite them as below."
 type: software
-title: "cosys: packages and Lean 4 proofs for Collaboration Is Composition"
+title: "cosys: packages and Lean 4 proofs for Collaboration Is Composition and What Absence Costs"
 abstract: >-
   The packages that implement a model of collaboration in which every party acts
   through a Mealy machine over an append-only log of signed records, and the Lean 4
-  proofs of the paper Collaboration Is Composition: Mealy Machines over Signed
-  Records in Poly and Org.
+  proofs of two papers: Collaboration Is Composition: Mealy Machines over Signed
+  Records in Poly and Org, and What Absence Costs, on which social facts need an
+  authority.
 authors:
   - family-names: Karna
     given-names: Risav
     affiliation: "CoSys Work Pvt. Ltd."
     orcid: "https://orcid.org/0009-0005-6682-9473"
-version: "proofs-v1.0.0"
+version: "proofs-v1.1.0"
 doi: "10.5281/zenodo.24026063"
 date-released: "2026-11-07"
 repository-code: "https://github.com/cosys-work/cosys"
@@ -24,6 +25,8 @@ keywords:
   - polynomial functors
   - Mealy machines
   - local-first software
+  - social ontology
+  - CALM theorem
 references:
   - type: article
     title: "Collaboration Is Composition: Mealy Machines over Signed Records in Poly and Org"
@@ -35,3 +38,11 @@ references:
     year: 2026
     doi: "10.5281/zenodo.24026645"
     url: "https://doi.org/10.5281/zenodo.24026645"
+  - type: article
+    title: "What Absence Costs"
+    authors:
+      - family-names: Karna
+        given-names: Risav
+        affiliation: "CoSys Work Pvt. Ltd."
+        orcid: "https://orcid.org/0009-0005-6682-9473"
+    year: 2026

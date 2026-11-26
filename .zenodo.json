@@ -1,7 +1,7 @@
 {
-  "title": "cosys: packages and Lean 4 proofs for Collaboration Is Composition",
+  "title": "cosys: packages and Lean 4 proofs for Collaboration Is Composition and What Absence Costs",
   "upload_type": "software",
-  "description": "<p>The packages that implement a model of collaboration in which every party acts through a Mealy machine over an append-only log of signed records, and the Lean 4 proofs of the paper <em>Collaboration Is Composition: Mealy Machines over Signed Records in Poly and Org</em>. The proofs are in <code>proofs/</code>; <code>proofs/Check.lean</code> prints the axioms behind each result.</p>",
+  "description": "<p>The packages that implement a model of collaboration in which every party acts through a Mealy machine over an append-only log of signed records, and the Lean 4 proofs of two papers: <em>Collaboration Is Composition: Mealy Machines over Signed Records in Poly and Org</em>, and <em>What Absence Costs</em>, on which social facts need an authority. The proofs are in <code>proofs/</code>, in the libraries <code>CosysCore</code>, <code>CosysCalco</code> and <code>CosysSocial</code>; <code>proofs/Check.lean</code> prints the axioms behind each result.</p>",
   "creators": [
     {
       "name": "Karna, Risav",
@@ -15,7 +15,9 @@
     "applied category theory",
     "polynomial functors",
     "Mealy machines",
-    "local-first software"
+    "local-first software",
+    "social ontology",
+    "CALM theorem"
   ],
   "related_identifiers": [
     {
@@ -24,5 +26,6 @@
       "resource_type": "publication-preprint",
       "scheme": "doi"
     }
-  ]
+  ],
+  "version": "proofs-v1.1.0"
 }
