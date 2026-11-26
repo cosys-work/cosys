@@ -1,14 +1,15 @@
 # Proofs
 
-Lean 4 proofs of the results in our paper *Collaboration Is Composition: Mealy Machines over Signed
-Records in Poly and Org* ([doi:10.5281/zenodo.24026645](https://doi.org/10.5281/zenodo.24026645)). The model is the one the `@cosys` packages implement: every party acts
+Lean 4 proofs of the results in our papers *Collaboration Is Composition: Mealy Machines over Signed
+Records in Poly and Org* ([doi:10.5281/zenodo.24026645](https://doi.org/10.5281/zenodo.24026645)) and *What Absence Costs*. The model is the one the `@cosys` packages implement: every party acts
 through a Mealy machine over an append-only log of signed records, and a collaboration is those
 machines wired together through mailboxes.
 
-Release `proofs-v1.0.0` is archived on Zenodo under the DOI
-[10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063).
+Release `proofs-v1.0.0`, with the proofs for the first paper, is archived on Zenodo under the DOI
+[10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063). Release `proofs-v1.1.0` adds
+the proofs for the second.
 
-There are two libraries. `CosysCore` uses core Lean only:
+There are three libraries. `CosysCore` uses core Lean only:
 
 | File | Results |
 | --- | --- |
@@ -26,6 +27,19 @@ There are two libraries. `CosysCore` uses core Lean only:
 | `CosysCalco/Order.lean` | Monotone boxes and the receive rule, read in any order; order independence with finitely many units, with unboundedly many units, and for chains, with `Out` read through finite subsets; outside inputs, and a pairing that forms inside a run; growing wiring; no global quiescence; a non-monotone condition from any point of a run; rounds |
 | `CosysCalco/Claims.lean` | Grades of records, claim types with accountable keys, acceptance, reserved claims, placement of agents, and the decision procedure run on an example |
 | `CosysCalco/Grades.lean` | The lattice of grades, provenance as `PosBool`, acceptance as its universal property |
+
+`CosysSocial` builds on both and holds the results of *What Absence Costs*, on which social facts
+need an authority:
+
+| File | Results |
+| --- | --- |
+| `CosysSocial/Grounding.lean` | Grounding conditions, the sort into those that ask only for records and those that ask for an absence, finite witnesses, one record whose absence a fact needs, and the observers' test |
+| `CosysSocial/Calm.lean` | Facts as monotone boxes, and CALM for social facts: over countably many records, a fact whose absences show over finitely many records settles the same way under every fair schedule exactly when it asks only for records |
+| `CosysSocial/Seal.lean` | Seals as claim types, the latest seal, validity and revocation lists, joint seals that no party makes or reopens alone, an observer's checkpoint, and seals made by an office |
+| `CosysSocial/Authority.lean` | Authority rules as conditions on grades, with the first paper's claim types as the rules that ask for a fixed set; quorums; a governing body's facade, behind which attribution survives; what concerns one person alone; no rotation of members by a captured majority; suspensions |
+| `CosysSocial/Layers.lean` | Frames, customizations that add, rules kept as records, and translations between vocabularies that keep presence facts |
+| `CosysSocial/Positive.lean` | Over finitely many records, asking only for records as a positive Boolean expression, and quorums as positive Boolean expressions over signatures |
+| `CosysSocial/Examples.lean` | The committee, the night nurse, the camera and the duelling administrators, decided on small instances |
 
 ## Building
 

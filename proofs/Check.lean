@@ -1,5 +1,6 @@
 import CosysCore
 import CosysCalco
+import CosysSocial
 
 /-!
 Run with `lake env lean Check.lean` after `lake build`. Each line prints the axioms a result
@@ -69,3 +70,58 @@ subset of them. `sorryAx` in any line means an unproved step.
 #print axioms Cosys.Calco.PosBool.mul_idem
 #print axioms Cosys.Calco.PosBool.lift_unique
 #print axioms Cosys.Calco.PosBool.lift_congr
+-- The sort (CosysSocial)
+#print axioms Cosys.Social.sort
+#print axioms Cosys.Social.positive_iff_witnessed
+#print axioms Cosys.Social.positive_finite_witness
+#print axioms Cosys.Social.absence_step
+#print axioms Cosys.Social.positive_iff_local_sound
+#print axioms Cosys.Social.positive_iff_posBool
+#print axioms Cosys.Social.rule_iff_posBool
+-- CALM for social facts (CosysSocial)
+#print axioms Cosys.Social.factOut_box
+#print axioms Cosys.Social.positive_settles
+#print axioms Cosys.Social.absence_splits
+#print axioms Cosys.Social.calm_social
+-- Seals (CosysSocial)
+#print axioms Cosys.Social.sealed_positive
+#print axioms Cosys.Social.latest_asks_absence
+#print axioms Cosys.Social.valid_asks_absence
+#print axioms Cosys.Social.valid_asOf_positive
+#print axioms Cosys.Social.joint_positive
+#print axioms Cosys.Social.joint_needs_each
+#print axioms Cosys.Social.reopen_needs_each
+#print axioms Cosys.Social.checkpoint_positive
+#print axioms Cosys.Social.checkpoint_not_institutional
+#print axioms Cosys.Social.office_seal_asks_absence
+#print axioms Cosys.Social.office_seal_asOf_positive
+-- Authority rules, quorums and facades (CosysSocial)
+#print axioms Cosys.Social.claimBy_conj
+#print axioms Cosys.Social.claimBy_mono
+#print axioms Cosys.Social.quorum_monotone
+#print axioms Cosys.Social.posBool_monotone
+#print axioms Cosys.Social.facade_attribution
+#print axioms Cosys.Social.facade_positive
+#print axioms Cosys.Social.facade_minority
+#print axioms Cosys.Social.personal_beyond_quorum
+#print axioms Cosys.Social.no_rotation_by_capture
+#print axioms Cosys.Social.suspension_splits
+-- Frames in layers (CosysSocial)
+#print axioms Cosys.Social.extends_facts
+#print axioms Cosys.Social.extends_positive
+#print axioms Cosys.Social.inForce_positive
+#print axioms Cosys.Social.inForce_asks_absence
+#print axioms Cosys.Social.Translation.injective
+#print axioms Cosys.Social.translate_positive
+-- The examples (CosysSocial)
+#print axioms Cosys.Social.Examples.carried_asOf_call_positive
+#print axioms Cosys.Social.Examples.carried_asOf_call
+#print axioms Cosys.Social.Examples.currentDoseTen_asks_absence
+#print axioms Cosys.Social.Examples.dose_asOf_handover_positive
+#print axioms Cosys.Social.Examples.nurse_checkpoint_positive
+#print axioms Cosys.Social.Examples.no_handover_alone
+#print axioms Cosys.Social.Examples.credential_valid_asks_absence
+#print axioms Cosys.Social.Examples.credential_valid_asOf_list_positive
+#print axioms Cosys.Social.Examples.backdate_changes_outcome
+#print axioms Cosys.Social.Examples.backdate_reorders
+#print axioms Cosys.Social.Examples.epoch_fixes_order
