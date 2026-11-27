@@ -25,6 +25,12 @@
       "relation": "isSupplementTo",
       "resource_type": "publication-preprint",
       "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24566902",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-preprint",
+      "scheme": "doi"
     }
   ],
   "version": "proofs-v1.1.0"

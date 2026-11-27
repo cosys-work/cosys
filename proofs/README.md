@@ -1,7 +1,7 @@
 # Proofs
 
 Lean 4 proofs of the results in our papers *Collaboration Is Composition: Mealy Machines over Signed
-Records in Poly and Org* ([doi:10.5281/zenodo.24026645](https://doi.org/10.5281/zenodo.24026645)) and *What Absence Costs*. The model is the one the `@cosys` packages implement: every party acts
+Records in Poly and Org* ([doi:10.5281/zenodo.24026645](https://doi.org/10.5281/zenodo.24026645)) and *What Absence Costs* ([doi:10.5281/zenodo.24566902](https://doi.org/10.5281/zenodo.24566902)). The model is the one the `@cosys` packages implement: every party acts
 through a Mealy machine over an append-only log of signed records, and a collaboration is those
 machines wired together through mailboxes.
 

@@ -33,7 +33,8 @@ They run on Deno, Node.js and Bun. In a React Native or Expo app, install from n
 Machines over Signed Records in Poly and Org* ([doi:10.5281/zenodo.24026645](https://doi.org/10.5281/zenodo.24026645)). `CosysCore`, in core Lean, covers the polynomial-functor results, registries of pairings in Org, gluing of
 record sets and trust as a fibration over observers. `CosysCalco`, on Mathlib, covers congruence,
 order independence for monotone boxes, claims as types and grades. `CosysSocial`, on both, holds
-the results of our second paper, *What Absence Costs*: the sort of social facts into those that ask
+the results of our second paper, *What Absence Costs*
+([doi:10.5281/zenodo.24566902](https://doi.org/10.5281/zenodo.24566902)): the sort of social facts into those that ask
 only for records and those that ask for an absence, CALM for social facts, seals and authority
 rules. Build instructions and a map from files to results are in
 [proofs/README.md](proofs/README.md).
