@@ -38,8 +38,9 @@ only for records and those that ask for an absence, CALM for social facts, seals
 rules. Build instructions and a map from files to results are in
 [proofs/README.md](proofs/README.md).
 Release `proofs-v1.0.0` is archived on Zenodo under the DOI
-[10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063), and release `proofs-v1.1.0`
-adds `CosysSocial`.
+[10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063), and release `proofs-v1.1.0`,
+which adds `CosysSocial`, under the DOI
+[10.5281/zenodo.24566342](https://doi.org/10.5281/zenodo.24566342).
 
 ## How this repository is made
 

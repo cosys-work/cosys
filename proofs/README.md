@@ -7,7 +7,8 @@ machines wired together through mailboxes.
 
 Release `proofs-v1.0.0`, with the proofs for the first paper, is archived on Zenodo under the DOI
 [10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063). Release `proofs-v1.1.0` adds
-the proofs for the second.
+the proofs for the second, under the DOI
+[10.5281/zenodo.24566342](https://doi.org/10.5281/zenodo.24566342).
 
 There are three libraries. `CosysCore` uses core Lean only:
 
