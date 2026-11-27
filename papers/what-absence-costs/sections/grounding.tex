@@ -60,13 +60,26 @@ record, and no amount of looking at her own records can establish an absence.
 
 Absence facts turn up everywhere once they have a name: no objection remains open, this is the
 latest version, this license has not been revoked, this slot is still free. Each holds of some set
-of records and fails of a larger one, which makes its grounding condition non-monotone.
+of records and fails of a larger one, which makes its grounding condition non-monotone.\footnote{Every
+grounding condition does exactly one of the two: it asks only for records or it asks for an absence.
+When finitely many records lie between the smaller set and the larger, the absence comes down to a
+single record that the condition needs to be missing, and over finitely many records a condition
+that asks only for records is a positive Boolean expression in which records are present. We have
+proved these in Lean 4, as \texttt{sort}, \texttt{absence\_step} and \texttt{positive\_iff\_posBool},
+in the library \texttt{CosysSocial} of release \texttt{proofs-v1.1.0} \citep{karna2026social}, which
+builds on the proofs for \citet{karna2026}. Each result below is named as it is there.}
 
 Our claim is that the CALM theorem draws the same line through social facts that it draws through
 programs, as soon as the facts are grounded in records kept in many hands. A fact with a monotone
 grounding condition can be settled by anyone who holds the records, in any order, and never has to
 be taken back. A fact whose grounding condition asks for an absence cannot be settled that way by
-anyone, however diligent, until some coordination has happened. The nurse's local fact, that she has
+anyone, however diligent, until some coordination has happened.\footnote{In \texttt{proofs-v1.1.0}
+this is \texttt{calm\_social}, stated in the network model of \citet{karna2026}: a grounding
+condition asks only for records exactly when every network whose machine answers it settles the
+same way under every fair order of delivery. Its conditions are given with the reply to the
+objection that the theorem does not transfer (\secref{sec:obj-transfer}). The nurse's side of it is
+\texttt{positive\_iff\_local\_sound}: a conclusion each observer draws from its own records holds of
+all the records together exactly when its condition asks only for records.} The nurse's local fact, that she has
 seen no later prescription, is monotone and safe to state. The institutional fact, that no later
 prescription exists, is the one the dose depends on, and a late or partitioned record can falsify
 it.
