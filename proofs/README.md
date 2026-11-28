@@ -9,7 +9,8 @@ Release `proofs-v1.0.0`, with the proofs for the first paper, is archived on Zen
 [10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063). Release `proofs-v1.1.0` adds
 the proofs for the second, under the DOI
 [10.5281/zenodo.24566342](https://doi.org/10.5281/zenodo.24566342). Release `proofs-v1.2.0` adds
-the results for parties on different versions and for bounded storage.
+the results for parties on different versions and for bounded storage, under the DOI
+[10.5281/zenodo.24626245](https://doi.org/10.5281/zenodo.24626245).
 
 There are three libraries. `CosysCore` uses core Lean only:
 
