@@ -125,3 +125,13 @@ subset of them. `sorryAx` in any line means an unproved step.
 #print axioms Cosys.Social.Examples.backdate_changes_outcome
 #print axioms Cosys.Social.Examples.backdate_reorders
 #print axioms Cosys.Social.Examples.epoch_fixes_order
+-- Parties on different versions (CosysSocial)
+#print axioms Cosys.Social.view_positive
+#print axioms Cosys.Social.lossy_view_blind
+#print axioms Cosys.Social.lossy_view_misses_defeat
+#print axioms Cosys.Social.Lens.comp
+#print axioms Cosys.Social.Translation.toLens
+#print axioms Cosys.Social.viewOut_box
+#print axioms Cosys.Social.versioned_settles
+-- Bounded storage (CosysSocial)
+#print axioms Cosys.Social.summary_answers

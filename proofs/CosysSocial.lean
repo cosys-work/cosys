@@ -5,3 +5,5 @@ import CosysSocial.Authority
 import CosysSocial.Layers
 import CosysSocial.Positive
 import CosysSocial.Examples
+import CosysSocial.Versions
+import CosysSocial.Summary

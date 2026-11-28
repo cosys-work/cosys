@@ -13,7 +13,7 @@ authors:
     given-names: Risav
     affiliation: "CoSys Work Pvt. Ltd."
     orcid: "https://orcid.org/0009-0005-6682-9473"
-version: "proofs-v1.1.0"
+version: "proofs-v1.2.0"
 doi: "10.5281/zenodo.24566342"
 date-released: "2026-11-26"
 repository-code: "https://github.com/cosys-work/cosys"
