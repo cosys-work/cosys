@@ -8,7 +8,8 @@ machines wired together through mailboxes.
 Release `proofs-v1.0.0`, with the proofs for the first paper, is archived on Zenodo under the DOI
 [10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063). Release `proofs-v1.1.0` adds
 the proofs for the second, under the DOI
-[10.5281/zenodo.24566342](https://doi.org/10.5281/zenodo.24566342).
+[10.5281/zenodo.24566342](https://doi.org/10.5281/zenodo.24566342). Release `proofs-v1.2.0` adds
+the results for parties on different versions and for bounded storage.
 
 There are three libraries. `CosysCore` uses core Lean only:
 
@@ -40,6 +41,8 @@ need an authority:
 | `CosysSocial/Authority.lean` | Authority rules as conditions on grades, with the first paper's claim types as the rules that ask for a fixed set; quorums; a governing body's facade, behind which attribution survives; what concerns one person alone; no rotation of members by a captured majority; suspensions |
 | `CosysSocial/Layers.lean` | Frames, customizations that add, rules kept as records, and translations between vocabularies that keep presence facts |
 | `CosysSocial/Positive.lean` | Over finitely many records, asking only for records as a positive Boolean expression, and quorums as positive Boolean expressions over signatures |
+| `CosysSocial/Versions.lean` | Parties on different versions: a condition that asks only for records still does through any record-wise view, a lossy view misses a defeat, a translation with a complement that loses nothing gives a lens, lenses compose, and CALM for a unit that reads its log through a view |
+| `CosysSocial/Summary.lean` | A summary sealed as of a checkpoint answers a positive question as the records it replaces would |
 | `CosysSocial/Examples.lean` | The committee, the night nurse, the camera and the duelling administrators, decided on small instances |
 
 ## Building

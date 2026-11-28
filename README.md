@@ -41,7 +41,8 @@ rules. Build instructions and a map from files to results are in
 Release `proofs-v1.0.0` is archived on Zenodo under the DOI
 [10.5281/zenodo.24026063](https://doi.org/10.5281/zenodo.24026063), and release `proofs-v1.1.0`,
 which adds `CosysSocial`, under the DOI
-[10.5281/zenodo.24566342](https://doi.org/10.5281/zenodo.24566342).
+[10.5281/zenodo.24566342](https://doi.org/10.5281/zenodo.24566342). Release `proofs-v1.2.0` adds
+the results for parties on different versions and for bounded storage.
 
 ## How this repository is made
 
